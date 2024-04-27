@@ -1,0 +1,32 @@
+:root {
+    --scrollbar-width: calc(100vw - 100%);
+  }
+body {
+    margin:0px;
+    padding:0px;
+    background: linear-gradient(to right, #aa5486, #7E315D);
+}
+h1 {
+    font-family: 'Archivo', sans-serif; 
+    font-weight: 600; 
+    font-size: 48px;
+    color: #FED1EB;
+}
+
+h2 {
+    font-family: 'Archivo', sans-serif; 
+    font-weight: 600; 
+    font-size: 26px;
+}
+
+p {
+    font-family: 'Archivo', sans-serif;  
+    font-size: 26px;
+    color: #FED1EB;
+}
+
+  
+
+button {
+    background-color: green;
+}

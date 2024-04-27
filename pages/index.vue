@@ -1,0 +1,108 @@
+<template>
+  <section id="home">
+    <div class="wrapper">
+      <img src="../assets/cherry-devider.jpg" alt="BARI Produce cherries.">
+    </div>
+  </section>
+  <section id="about">
+    <div class="about-grid">
+      <div class="image-wrapper">
+        <div class="sticky">
+          <img class="sticky" src="../assets/about.jpg" alt="Description of the image">
+        </div>
+      </div>
+      <div class="scrollable">
+        <div class="text-block">
+          <h1>About Us</h1>
+          <p>Bari Produce LLC was created to market high quality tree fruit and table grapes under the well known
+            Bari®
+            and Logoluso® brands. With Frank A. Logoluso Farms as our foundation, Bari Produce brings together other
+            quality-minded growers to expand the Bari® labels and to build upon the Mr. Logoluso’s legacy.</p>
+          <p>“Growing grapes is a family tradition,” says Frank Logoluso. He learned the trade from his father,
+            Panteleao
+            Logoluso who moved to Madera, CA from Bari, Italy around 1915.</p>
+          <p>When Panteleao was a child growing up in Bari, people shopped daily in the market square to buy the
+            freshest
+            available produce. Frank always had fond memories of his father’s memories of the marketplace and created
+            the
+            Bari® label as a tribute to not only his father, but to the “old school” way of life.</p>
+          <p>The Bari® brand grape label was created 60 years ago and is reserved for only the best of the best in
+            terms
+            of size, quality and taste. The Bari® brand today means the same as it did in 1948….consistent,
+            top-quality
+            fruit!</p>
+          <p>Bari Produce LLC ships our produce domestically as well as internationally; reaching over 23
+            international
+            markets. Our efforts in the field ensure consistently top-quality produce in today’s marketplace.</p>
+          <p>Thank you for stopping by our website and familiarizing yourself with Bari Produce LLC. Our desire is to
+            continue delivering our family touch in every piece of fruit we send across the globe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="products">
+    <!-- Products section content here -->
+  </section>
+  <section id="recipes">
+    This is the recipe section.
+  </section>
+</template>
+
+<style scoped>
+section {
+  display: flex;
+  min-height: 100vh;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Home section */
+#home {
+  display:flex;
+  flex-direction: row;
+
+}
+
+.wrapper {
+  display:flex;
+  align-content:center;
+  justify-content: center;
+  height:100vh;
+  width:100%;;
+}
+
+/* About section */
+.about-grid {
+  display: flex;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.about-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.image-wrapper {
+  flex: 1;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+
+.scrollable {
+  flex: 2;
+}
+
+.text-block {
+  padding: 100px 36px;
+  line-height: 38px;
+}
+</style>
