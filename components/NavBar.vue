@@ -13,17 +13,17 @@ const scrollToSection = (sectionId: string) => {
 const productDropdownBool = ref<boolean>(false);
 const fruitdropdownBool = ref<boolean>(false);
 const grapedropdownBool = ref<boolean>(false);
-const navBackgroundBool = ref<boolean>(false);
+const navBool = ref<boolean>(false);
 
 const openProductDropdown = () => {
   productDropdownBool.value = true;
-  navBackgroundBool.value = true;
+  navBool.value = true;
 };
 
 const closeProductDropdown = () => {
   setTimeout(() => {
     productDropdownBool.value = false;
-    navBackgroundBool.value = false;
+    navBool.value = false;
   }, 300);
 }
 
@@ -35,7 +35,7 @@ const closeFruitandGrapeDropdown = () => {
   setTimeout(() => {
     fruitdropdownBool.value = false;
     grapedropdownBool.value = false;
-    navBackgroundBool.value = false;
+    navBool.value = false;
   }, 300);
 }
 
@@ -48,31 +48,34 @@ const recipeDropdownBool = ref<boolean>(false);
 
 const openRecipeDropdown = () => {
   recipeDropdownBool.value = true;
-  navBackgroundBool.value = true;
+  navBool.value = true;
 };
 
 const closeRecipeDropdown = () => {
   setTimeout(() => {
     recipeDropdownBool.value = false;
-    navBackgroundBool.value = false;
+    navBool.value = false;
   }, 300);
 }
 
 //mobile menu
-// const toggleMobileMenu = () => {
-//   const menuButton = document.querySelector('.mobile-menu-btn');
-//   const mobileNav = document.querySelector('nav');
+const toggleMobileMenu = () => {
 
-//   menuButton?.addEventListener('click', () => {
-//     if (mobileNav.style.display === 'none') {
-//       mobileNav.style.display = 'block'; // Change display to 'block'
-//     } else {
-//       mobileNav.style.display = 'none'; // Change display to 'none'
-//     }
-//   });
-// }
+  //toggle mobile menu button
+  const mobileNav = document.querySelector('.navlinks');
 
+  if (mobileNav) {
+    const mobileNavDisplay = window.getComputedStyle(mobileNav).display;
 
+    if (mobileNavDisplay === "none") {
+      mobileNav.style.display = "flex";
+    } else {
+      mobileNav.style.display = "none";
+    }
+  }
+  //toggle the background
+  navBool.value = !navBool.value;
+}
 </script>
 
 <template>
@@ -85,85 +88,75 @@ const closeRecipeDropdown = () => {
       </div>
       <div class="mobile-navlinks-wrapper">
         <div class="mobile-navlinks">
-          <div class="mobile-menu-btn" @click="toggleMobileMenu()"><button>MENU</button></div>
+          <button class="mobile-menu-btn" @click="toggleMobileMenu()">MENU</button>
         </div>
       </div>
-      <div class="navlinks-wrapper">
+      <Transition>
+        <div class="navlinks-wrapper">
         <nav>
           <ul class="navlinks">
             <li><a @click.prevent="scrollToSection('home')">HOME</a></li>
             <li><a @click.prevent="scrollToSection('about')">ABOUT</a></li>
-            <div>
+            <div class="dropdown" @mouseleave="closeProductDropdown()">
               <li><a @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
-              <div class="dropdown" @mouseleave="closeProductDropdown()">
-                <div class="primary-dropdown" @mouseleave="closeFruitandGrapeDropdown()">
-                  <Transition>
-                    <div class="primary-link-wrapper" v-show="productDropdownBool">
-                      <div class="primary-link" @mouseover="openFruitDropdown()">
-                        <li>Fruits</li>
-                      </div>
-                      <Transition>
-                        <div class="secondary-dropdown" v-show="fruitdropdownBool">
-                          <li>Apricots</li>
-                          <li>Persimmons</li>
-                          <li>Plums</li>
-                        </div>
-                      </Transition>
+              <div class="primary-dropdown" @mouseleave="closeFruitandGrapeDropdown()">
+                <Transition>
+                  <div class="primary-link-wrapper" v-show="productDropdownBool">
+                    <div class="primary-link" @mouseover="openFruitDropdown()">
+                      <li>Fruits</li>
                     </div>
-                  </Transition>
-                  <Transition>
-                    <div class="primary-link-wrapper" v-show="productDropdownBool">
-                      <div class="primary-link" @mouseover="openGrapeDropdown()">
-                        <li>Grapes</li>
+                    <Transition>
+                      <div class="secondary-dropdown" v-show="fruitdropdownBool">
+                        <li>Apricots</li>
+                        <li>Persimmons</li>
+                        <li>Plums</li>
                       </div>
-                      <Transition>
-                        <div class="secondary-dropdown" v-show="grapedropdownBool">
-                          <li>Flames</li>
-                          <li>Thomcords</li>
-                        </div>
-                      </Transition>
+                    </Transition>
+                  </div>
+                </Transition>
+                <Transition>
+                  <div class="primary-link-wrapper" v-show="productDropdownBool">
+                    <div class="primary-link" @mouseover="openGrapeDropdown()">
+                      <li>Grapes</li>
                     </div>
-                  </Transition>
-                </div>
+                    <Transition>
+                      <div class="secondary-dropdown" v-show="grapedropdownBool">
+                        <li>Flames</li>
+                        <li>Thomcords</li>
+                      </div>
+                    </Transition>
+                  </div>
+                </Transition>
               </div>
             </div>
-            <div>
+            <div class="dropdown" @mouseleave="closeRecipeDropdown()">
               <li><a @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
-              <div class="dropdown" @mouseleave="closeRecipeDropdown()">
-                <div class="primary-dropdown">
-                  <div class="primary-link-wrapper" v-show="recipeDropdownBool">
-                    <div class="primary-link">
-                      <li>Grandma's Peach Pie</li>
-                      <li>Apricot Chicken</li>
-                    </div>
+
+              <div class="primary-dropdown">
+                <div class="primary-link-wrapper" v-show="recipeDropdownBool">
+                  <div class="primary-link">
+                    <li>Grandma's Peach Pie</li>
+                    <li>Apricot Chicken</li>
                   </div>
                 </div>
               </div>
             </div>
-
             <li><a @click.prevent="scrollToSection('contact')">CONTACT</a></li>
           </ul>
         </nav>
       </div>
+      </Transition>
     </div>
     <Transition>
-      <div class="primary-bg" v-show="navBackgroundBool"></div>
+      <div class="primary-bg" v-show="navBool"></div>
     </Transition>
+    <div class="nav-bg"></div>
   </header>
 </template>
 
 
 
 <style scoped>
-button {
-  padding: 4px 12px;
-  color: #7E315D;
-  font-weight: 600;
-  border: 1px solid #F9E4F0;
-  border-radius: 20px;
-  background-color: #F9E4F0;
-}
-
 img {
   width: 100%;
   height: auto;
@@ -177,7 +170,6 @@ li {
   font-weight: bold;
   color: #FED1EB;
   list-style: none;
-  margin: 0px 16px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -186,7 +178,6 @@ li:hover {
   font-weight: bold;
   color: #7E315D;
   background-color: #FED1EB;
-  padding: 4px 8px;
 }
 
 /*navbar*/
@@ -198,7 +189,10 @@ li:hover {
   height: 100px;
   width: 100vw;
   z-index: 10000;
+}
 
+.nav-bg {
+  display: none;
 }
 
 /* logo elements */
@@ -213,6 +207,17 @@ li:hover {
 }
 
 /* mobile nav elements */
+.mobile-menu-btn {
+  display: flex;
+  padding: 4px 12px;
+  color: #7E315D;
+  font-size: 24px;
+  font-weight: 600;
+  border: 1px solid #F9E4F0;
+  border-radius: 20px;
+  background-color: #F9E4F0;
+}
+
 .mobile-navlinks-wrapper {
   height: 100%;
   display: none;
@@ -220,9 +225,12 @@ li:hover {
 }
 
 .mobile-navlinks {
-  text-align: end;
-  align-content: center;
+  display: flex;
+  justify-content: end;
+  align-self: center;
   width: 100%;
+  height: fit-content;
+
 }
 
 /* regular nav elements */
@@ -230,7 +238,6 @@ li:hover {
   height: 100%;
   align-content: center;
   padding: 0px 32px;
-  border: 2px solid aqua;
 }
 
 .navlinks {
@@ -239,15 +246,14 @@ li:hover {
   justify-content: space-evenly;
   padding-left: 0;
   margin: 0px;
-
+  border: 2px aqua dashed;
 }
 
 /* products dropdown */
 .dropdown {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  margin-top: 16px;
+
 }
 
 .primary-bg {
@@ -256,16 +262,19 @@ li:hover {
   background: linear-gradient(to bottom, #7a2756, transparent);
   top: 100px;
   height: 150%;
-  width: calc(100vw - var(--scrollbar-width));
+  width: 100%;
   z-index: 1000;
 }
 
 .primary-dropdown {
   display: flex;
   flex-direction: column;
+  border: 3px aqua solid;
   color: #FED1EB;
   text-transform: capitalize;
   transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 100%;
 }
 
 .primary-dropdown li {
@@ -303,14 +312,83 @@ li:hover {
 }
 
 @media screen and (max-width: 991px) {
-  .navlinks-wrapper {
-    display: none;
+  .navbar {
+    background: none;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr;
   }
 
+  .nav-bg {
+    display: flex;
+    background: linear-gradient(to right, #aa5486, #7E315D);
+    height: 100px;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 9999;
+  }
+
+  .primary-bg {
+    background: linear-gradient(to bottom, #7a2756, transparent);
+    top: 100px;
+
+  }
+
+
+
+
+  /* menu button */
   .mobile-navlinks-wrapper {
     display: flex;
   }
 
+  /* navigation links */
+  .navlinks-wrapper {
+    grid-column: 1 / span 2;
+    padding: 0px 16px;
+    align-content: start;
+  }
+
+  .navlinks {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+    text-align: right;
+    padding: 12px 0px;
+  }
+
+  .navlinks>li {
+    padding: 12px 0px;
+    margin: 4px 0px;
+    font-size: 20px;
+  }
+
+  /* dropdown menu items */
+  .dropdown {
+    display: flex;
+  flex-direction: column;
+    position: relative;
+    margin: 0;
+
+  }
+
+.primary-dropdown {
+  position: relative;
+}
+
+  .primary-link {
+    margin: 4px 0px;
+  }
+
+  .primary-link>li {
+    font-weight: normal;
+    font-size: 18px;
+  }
+
+  .secondary-dropdown {
+    margin-bottom: 4px;
+  }
 }
 
 @media screen and (max-width: 667px) {}
