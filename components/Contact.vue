@@ -254,7 +254,7 @@ p {
     .contact-wrapper {
         display: flex;
         flex-direction: column;
-        color: black;
+
         gap: 16px;
     }
 

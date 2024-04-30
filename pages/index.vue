@@ -41,8 +41,29 @@
     </div>
   </section>
   <section id="products">
-    <!-- Products section content here -->
+    <div class="third-divided">
+      <div class="two-thirds">
+        <div class="text-block">
+          <h1>Quality, consistency and great eating quality are the expectation when apricots, peaches, plums and
+            nectarines are placed in our label.</h1>
+          <p>Bari Produce stone fruit is packed in the premium BARI® label. Certain varieties have greater consumer
+            appeal, but our efforts in the field ensure each varieties’ highest eating attributes and our efforts in
+            packing boost quality on the shelf. Early May starts the season with apricots and several early peaches and
+            nectarines. The Giant Lorna Apricot provides big size and big flavor in June. We provide most of our volume
+            in
+            yellow peaches and nectarines, with good amounts of white flesh, as well as plums and pluots.</p>
+        </div>
+      </div>
+      <div class="one-third-image">
+        <div class="product-image-wrapper">
+          <div class="product-image">
+            <img src="../assets/stonefruit.png" alt="Description of the image">
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+  <FruitSection></FruitSection>
   <section id="recipes">
     This is the recipe section.
   </section>
@@ -62,17 +83,19 @@ img {
 
 /* Home section */
 #home {
-  display:flex;
+  display: flex;
   flex-direction: row;
-
+  margin: 0;
+  padding: 0;
 }
 
 .wrapper {
-  display:flex;
-  align-content:center;
+  display: flex;
+  align-content: center;
   justify-content: center;
-  height:100vh;
-  width:100%;;
+  height: 100vh;
+  width: 100%;
+  ;
 }
 
 /* About section */
@@ -104,5 +127,105 @@ img {
 .text-block {
   padding: 100px 36px;
   line-height: 38px;
+}
+
+/*Product section*/
+
+.third-divided {
+  display: flex;
+  flex-direction: row;
+  width: calc(100vw - var(--scrollbar-width));
+  flex: 1;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: auto;
+  background-color: #A78895;
+}
+
+.card-wrapper-horizontal {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+  border-radius: 16px;
+  padding: 32px;
+  margin: 16px 8px;
+}
+
+.product-image-wrapper {
+  height: 100%;
+  align-content: center;
+}
+
+.one-third-list {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.one-third-list.scroll {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.one-third-image {
+  position: sticky;
+  flex: 1;
+  height: 100vh;
+  width: auto;
+}
+
+.two-thirds {
+  display: flex;
+  align-items: center;
+  flex: 2;
+  padding: 0px;
+
+}
+
+.sticky {
+  position: sticky;
+  z-index: 1;
+}
+
+@media screen and (max-width: 991px) {
+  /* about section */
+
+  .image-wrapper {
+    flex: 1;
+  }
+
+  .scrollable {
+    flex: 1;
+  }
+
+  .third-divided {
+    flex-direction: column;
+  }
+
+  .text-block {
+    padding: 100px 16px;
+    line-height: 38px;
+  }
+}
+
+@media screen and (max-width: 667px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .third-divided {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

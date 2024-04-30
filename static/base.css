@@ -1,16 +1,24 @@
 :root {
     --scrollbar-width: calc(100vw - 100%);
   }
+
 body {
     margin:0px;
     padding:0px;
     background: linear-gradient(to right, #aa5486, #7E315D);
 }
+
+body::-webkit-scrollbar {
+    display: none;
+  }
+
 h1 {
     font-family: 'Archivo', sans-serif; 
     font-weight: 600; 
-    font-size: 48px;
+    font-size: 44px;
     color: #FED1EB;
+    line-height: 1.2;
+    margin:0px;
 }
 
 h2 {
@@ -19,14 +27,56 @@ h2 {
     font-size: 26px;
 }
 
+h3 {
+    font-family: 'Archivo', sans-serif; 
+    font-weight: 600; 
+    line-height: 1.2;
+    font-size: 22px;
+}
+
 p {
     font-family: 'Archivo', sans-serif;  
-    font-size: 26px;
+    font-size: 20px;
+    line-height: 1.3;
     color: #FED1EB;
 }
 
-  
+a {
+    text-decoration: none;
+}
 
 button {
-    background-color: green;
+    font-family: 'Archivo', sans-serif;  
+    font-size: 20px;
+    font-weight: 600;
+    color:#7E315D;
+    border: none;
+    border-radius: 20px;
+    padding:8px 16px;
+    background-color: rgb(57, 192, 57);
 }
+
+@media screen and (max-width: 991px) {
+    h1 {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+    
+    h3 {
+        line-height: 1.2;
+        font-size: 16px;
+    }
+    
+    p {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+    
+    button {
+        font-size: 16px;
+    }
+  }
