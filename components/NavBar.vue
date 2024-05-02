@@ -31,13 +31,6 @@ const openFruitDropdown = () => {
   fruitdropdownBool.value = true;
 }
 
-const closeFruitandGrapeDropdown = () => {
-  setTimeout(() => {
-    fruitdropdownBool.value = false;
-    grapedropdownBool.value = false;
-    navBool.value = false;
-  }, 300);
-}
 
 const openGrapeDropdown = () => {
   grapedropdownBool.value = true;
@@ -97,9 +90,9 @@ const toggleMobileMenu = () => {
           <ul class="navlinks">
             <li><a @click.prevent="scrollToSection('home')">HOME</a></li>
             <li><a @click.prevent="scrollToSection('about')">ABOUT</a></li>
-            <div class="dropdown" @mouseleave="closeProductDropdown()">
+            <div class="dropdown">
               <li><a @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
-              <div class="primary-dropdown" @mouseleave="closeFruitandGrapeDropdown()">
+              <div class="primary-dropdown" @mouseleave="closeProductDropdown()">
                 <Transition>
                   <div class="primary-link-wrapper" v-show="productDropdownBool">
                     <div class="primary-link" @mouseover="openFruitDropdown()">
@@ -129,10 +122,10 @@ const toggleMobileMenu = () => {
                 </Transition>
               </div>
             </div>
-            <div class="dropdown" @mouseleave="closeRecipeDropdown()">
+            <div class="dropdown" >
               <li><a @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
 
-              <div class="primary-dropdown">
+              <div class="primary-dropdown" @mouseleave="closeRecipeDropdown()"> 
                 <div class="primary-link-wrapper" v-show="recipeDropdownBool">
                   <div class="primary-link">
                     <li>Grandma's Peach Pie</li>
@@ -246,7 +239,6 @@ li:hover {
   justify-content: space-evenly;
   padding-left: 0;
   margin: 0px;
-  border: 2px aqua dashed;
 }
 
 /* products dropdown */
@@ -269,7 +261,6 @@ li:hover {
 .primary-dropdown {
   display: flex;
   flex-direction: column;
-  border: 3px aqua solid;
   color: #FED1EB;
   text-transform: capitalize;
   transition: opacity 1s ease-in-out;

@@ -5,13 +5,13 @@
     </div>
   </section>
   <section id="about">
-    <div class="about-grid">
+    <div class="sticky-grid">
       <div class="image-wrapper">
         <div class="sticky">
           <img class="sticky" src="../assets/about.jpg" alt="Description of the image">
         </div>
       </div>
-      <div class="scrollable">
+      <div class="scrollable-about">
         <div class="text-block">
           <h1>About Us</h1>
           <p>Bari Produce LLC was created to market high quality tree fruit and table grapes under the well known
@@ -64,9 +64,33 @@
     </div>
   </section>
   <FruitSection></FruitSection>
-  <section id="recipes">
-    This is the recipe section.
-  </section>
+  <div class="third-divided">
+    <div class="two-thirds">
+      <div class="text-block">
+        <h1>We put a lot of energy into our grapes during the off and growing seasons to bring out their highest
+          eating
+          attributes.</h1>
+        <p>Bari Produce is best known for our BARI® and LOGOLUSO® table grape brands that have been in existence for
+          well
+          over 50 years. Quality, consistency and great eating quality are the expectation when grapes are placed in
+          these
+          labels. Our blend of new varieties (Autumn King & Scarlet Royals) as well as tried-and-true varieties
+          (Thompson
+          Seedless and Crimson Seedless) allows us to provide a full spectrum of great eating grapes.</p>
+        <p>Our table grape varieties include: Flames, Thomcords, Ivory, Champagne, Valley Pearls, Red Globes, Summer
+          Royals, Autumn Royal, Autumn King, Scarlet Royal, and Vintage Red.</p>
+      </div>
+    </div>
+    <div class="one-third-image">
+      <div class="product-image-wrapper">
+        <div class="product-image">
+          <img src="../assets/tablegrapes.png" alt="Description of the image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <GrapeSection></GrapeSection>
+  <RecipeSection></RecipeSection>
 </template>
 
 <style scoped>
@@ -99,13 +123,14 @@ img {
 }
 
 /* About section */
-.about-grid {
+.sticky-grid {
   display: flex;
+  flex-direction: row;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.about-grid::-webkit-scrollbar {
+.sticky-grid::-webkit-scrollbar {
   display: none;
 }
 
@@ -120,11 +145,12 @@ img {
   min-height: 100vh;
 }
 
-.scrollable {
+.scrollable-about {
   flex: 2;
 }
 
 .text-block {
+  flex:2;
   padding: 100px 36px;
   line-height: 38px;
 }
@@ -203,7 +229,7 @@ img {
     flex: 1;
   }
 
-  .scrollable {
+  .scrollable-about {
     flex: 1;
   }
 
@@ -218,7 +244,7 @@ img {
 }
 
 @media screen and (max-width: 667px) {
-  .about-grid {
+  .sticky-grid {
     display: flex;
     flex-direction: column;
   }
