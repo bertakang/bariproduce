@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { useFetch } from '#app';
 
-const { data } = await useFetch('https://bertakang.pythonanywhere.com/');
+const route = useRoute()
+const name = route.params.name;
+
+const { data } = await useFetch('https://bertakang.pythonanywhere.com/', {
+  pick: ['recipe_cards']
+});
+
 const recipeCards = data.value.recipe_cards;
 </script>
 
 <template>
   <div class="RecipeCard">
     <ul class="cards-wrapper">
-      <NuxtLink v-for="card in recipeCards" :to="'/Grape/' + card.name" :key="card.id">
+      <NuxtLink v-for="card in recipeCards" :to="'/Recipe/' + card.name" :key="card.id">
         <div class="card-wrapper">
           <div class="wrapper">
             <div class="header">
@@ -138,6 +144,24 @@ p {
 
 
 @media screen and (max-width: 991px) {
+  h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    line-height: 1.2;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.3;
+  }
 }
 
 @media screen and (max-width: 750px) {

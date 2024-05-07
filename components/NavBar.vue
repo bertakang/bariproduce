@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+//route information
+const route = useRoute();
+const { data } = await useFetch('https://bertakang.pythonanywhere.com/');
+
+const fruitCards = data.value.fruit_cards;
+const grapeCards = data.value.grape_cards;
+const recipeCards = data.value.recipe_cards;
+
 //navbar scroll behavior
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
@@ -100,9 +108,7 @@ const toggleMobileMenu = () => {
                     </div>
                     <Transition>
                       <div class="secondary-dropdown" v-show="fruitdropdownBool">
-                        <li>Apricots</li>
-                        <li>Persimmons</li>
-                        <li>Plums</li>
+                        <li v-for="fruitCard in fruitCards" :to="'/product/' + fruitCard.type + '/' + fruitCard.name" :key="fruitCard.id"><NuxtLink>{{ fruitCard.name }}</NuxtLink></li>
                       </div>
                     </Transition>
                   </div>
@@ -114,8 +120,7 @@ const toggleMobileMenu = () => {
                     </div>
                     <Transition>
                       <div class="secondary-dropdown" v-show="grapedropdownBool">
-                        <li>Flames</li>
-                        <li>Thomcords</li>
+                        <li  v-for="grapeCard in grapeCards" :to="'/product/' + grapeCard.type + '/' + grapeCard.name" :key="grapeCard.id"><NuxtLink>{{ grapeCard.name }}</NuxtLink></li>
                       </div>
                     </Transition>
                   </div>
@@ -124,12 +129,10 @@ const toggleMobileMenu = () => {
             </div>
             <div class="dropdown" >
               <li><a @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
-
               <div class="primary-dropdown" @mouseleave="closeRecipeDropdown()"> 
                 <div class="primary-link-wrapper" v-show="recipeDropdownBool">
                   <div class="primary-link">
-                    <li>Grandma's Peach Pie</li>
-                    <li>Apricot Chicken</li>
+                    <li v-for="recipeCard in recipeCards" :to="'/recipe/' + recipeCard.name" :key="recipeCard.id"><NuxtLink >{{ recipeCard.name }}</NuxtLink></li>
                   </div>
                 </div>
               </div>
@@ -228,6 +231,7 @@ li:hover {
 
 /* regular nav elements */
 .navlinks-wrapper {
+  display: grid;
   height: 100%;
   align-content: center;
   padding: 0px 32px;
@@ -325,8 +329,6 @@ li:hover {
     top: 100px;
 
   }
-
-
 
 
   /* menu button */

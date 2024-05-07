@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { useFetch } from '#app';
 
-const { data } = await useFetch('https://bertakang.pythonanywhere.com/');
+const route = useRoute()
+const name = route.params.name;
+
+const { data } = await useFetch('https://bertakang.pythonanywhere.com/', {
+  pick: ['fruit_cards']
+});
+
 const fruitCards = data.value.fruit_cards;
 </script>
 
 <template>
   <div class="FruitCard">
     <ul class="cards-wrapper">
-      <NuxtLink v-for="card in fruitCards" :to="'/Fruit/' + card.name" :key="card.id">
+      <NuxtLink v-for="card in fruitCards" :key="card.id" :to="`/product/Fruit/${card.name}`">
         <div class="card-wrapper">
           <div class="wrapper">
             <div class="header">
@@ -23,7 +29,7 @@ const fruitCards = data.value.fruit_cards;
                 <p>{{ card.description }}</p>
               </div>
               <div class="card-click">
-                <p>Learn More &raquo;</p>
+                <NuxtLink :to="`/product/Fruit/${card.name}`"><button>Learn More &raquo;</button></NuxtLink>
               </div>
             </div>
           </div>
@@ -32,6 +38,7 @@ const fruitCards = data.value.fruit_cards;
     </ul>
   </div>
 </template>
+
 
 <style scoped>
 /* general styles */
@@ -135,8 +142,31 @@ p {
 
 
 @media screen and (max-width: 991px) {
+  h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    line-height: 1.2;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
   .cards-wrapper {
     grid-template-columns: 1fr 1fr;
+  }
+
+  button {
+    width: max-content;
   }
 }
 
@@ -144,9 +174,11 @@ p {
   .cards-wrapper {
     grid-template-columns: 1fr;
   }
+
+
 }
 
 @media screen and (max-width: 300px) {
-  
+
 }
 </style>

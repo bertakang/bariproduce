@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import GrapeCard from './cards/GrapeCards.vue';
+
+const route = useRoute();
 </script>
 
 

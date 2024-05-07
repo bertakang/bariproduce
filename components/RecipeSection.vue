@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import RecipeCard from './cards/RecipeCards.vue';
+const route = useRoute();
 </script>
 
 <template>
@@ -23,13 +24,6 @@ import RecipeCard from './cards/RecipeCards.vue';
 </template>
 
 <style scoped>
-.wrapper {
-  display: flex;
-  background-color: #64264b;
-  flex-direction: column;
-  padding: 100px 0px;
-}
-
 button {
   padding: 4px 12px;
   color: #7E315D;
@@ -59,7 +53,7 @@ h2 {
 
 .text-block {
   position:sticky;
-  top:2.5rem;
+  top:100px;
   padding: 64px;
   display: flex;
   flex-direction: column;
@@ -70,9 +64,7 @@ h2 {
   z-index: 1;
   font-family: 'Archivo', sans-serif;
   flex: 2;
-  background-color: #7E315D;
 }
-
 
 .scrollable {
   display: flex;
@@ -91,10 +83,38 @@ h2 {
 }
 
 @media screen and (max-width: 991px) {
+  .sticky {
+  flex: 1;
+}
+
+.text-block {
+  padding: 32px;
+}
+
+.scrollable {
+  flex: 1;
+}
+
+.scrollable.scroll {
+  flex-direction: row;
+}
 
 }
 
 @media screen and (max-width: 667px) {
+#recipes {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky {
+  padding: 100px 0px;
+}
+
+.text-block {
+  padding: 16px;
+}
+
 }
 
 

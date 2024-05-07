@@ -4,8 +4,9 @@ export default defineNuxtConfig({
   router: {
     routes: [
       {
+        name: 'Fruit',
         path: '/Fruits/:fruit', 
-        component: '~/views/Fruits/_fruit.vue',
+        component: '~/pages/product/Fruits/[fruit].vue',
       },
     ],
   },

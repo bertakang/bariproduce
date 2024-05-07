@@ -1,3 +1,9 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: 'home'
+})
+</script>
+
 <template>
   <section id="home">
     <div class="wrapper">
@@ -48,8 +54,10 @@
             nectarines are placed in our label.</h1>
           <p>Bari Produce stone fruit is packed in the premium BARI® label. Certain varieties have greater consumer
             appeal, but our efforts in the field ensure each varieties’ highest eating attributes and our efforts in
-            packing boost quality on the shelf. Early May starts the season with apricots and several early peaches and
-            nectarines. The Giant Lorna Apricot provides big size and big flavor in June. We provide most of our volume
+            packing boost quality on the shelf. Early May starts the season with apricots and several early peaches
+            and
+            nectarines. The Giant Lorna Apricot provides big size and big flavor in June. We provide most of our
+            volume
             in
             yellow peaches and nectarines, with good amounts of white flesh, as well as plums and pluots.</p>
         </div>
@@ -150,7 +158,7 @@ img {
 }
 
 .text-block {
-  flex:2;
+  flex: 2;
   padding: 100px 36px;
   line-height: 38px;
 }
