@@ -29,7 +29,7 @@ const recipeCards = data.value.recipe_cards;
                 <p>{{ card.description }}</p>
               </div>
               <div class="card-click">
-                <p>Learn More &raquo;</p>
+                <NuxtLink :to="`/Recipe/${card.name}`"><button>Learn More &raquo;</button></NuxtLink>
               </div>
             </div>
           </div>
