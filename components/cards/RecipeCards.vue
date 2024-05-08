@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useFetch } from '#app';
 
-const route = useRoute()
-const name = route.params.name;
+const route = useRoute();
 
 const { data } = await useFetch('https://bertakang.pythonanywhere.com/', {
   pick: ['recipe_cards']
@@ -29,7 +28,7 @@ const recipeCards = data.value.recipe_cards;
                 <p>{{ card.description }}</p>
               </div>
               <div class="card-click">
-                <NuxtLink :to="`/Recipe/${card.name}`"><button>Learn More &raquo;</button></NuxtLink>
+                <p>Click to See More &raquo;</p>
               </div>
             </div>
           </div>
@@ -130,6 +129,7 @@ p {
 }
 
 .card-click {
+
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -161,6 +161,10 @@ p {
   p {
     font-size: 16px;
     line-height: 1.3;
+  }
+
+  button {
+    width: max-content;
   }
 }
 

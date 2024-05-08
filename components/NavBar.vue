@@ -327,51 +327,58 @@ li:hover {
   .primary-bg {
     background: linear-gradient(to bottom, #7a2756, transparent);
     top: 100px;
-
   }
 
 
   /* menu button */
   .mobile-navlinks-wrapper {
     display: flex;
+
   }
 
   /* navigation links */
   .navlinks-wrapper {
     grid-column: 1 / span 2;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     padding: 0px 16px;
     align-content: start;
   }
 
   .navlinks {
-    display: none;
+    display: flex;
+    position: static;
     height: 100%;
     flex-direction: column;
     text-align: right;
     padding: 12px 0px;
+
   }
 
   .navlinks>li {
     padding: 12px 0px;
     margin: 4px 0px;
     font-size: 20px;
+
   }
 
   /* dropdown menu items */
   .dropdown {
     display: flex;
   flex-direction: column;
-    position: relative;
+    position: static;
     margin: 0;
+    padding: 12px 0px;
 
   }
 
 .primary-dropdown {
-  position: relative;
+  position: static;
+
 }
 
   .primary-link {
     margin: 4px 0px;
+
   }
 
   .primary-link>li {

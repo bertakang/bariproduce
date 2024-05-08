@@ -29,8 +29,8 @@ const recipeData = await getrecipeData();
 
 const ingredients = recipeData.ingredients;
 const directions = recipeData.directions;
-const ingredientsList = ingredients.split(',').map(item => item.trim());
-const directionsList = directions.split(',').map(item => item.trim());
+const ingredientsList = ingredients.split('.').map(item => item.trim());
+const directionsList = directions.split('.').map(item => item.trim());
 
 
 console.log(ingredientsList);
@@ -80,18 +80,20 @@ p {
 ul {
   list-style-type: circle;
   padding-left: 32px;
+  margin: 0;
 }
 
 li{
-  
+  margin: 0;
   font-family: 'Archivo', sans-serif;
-
+  padding-left:16px;
   color: #FED1EB;
 }
 
 ol {
   list-style-type: decimal;
-  padding-left: 32px;
+
+  margin: 0;
 }
 
 .recipes-page {

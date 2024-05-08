@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useFetch } from '#app';
 
-const route = useRoute()
-const name = route.params.name;
+const route = useRoute();
+
 
 const { data } = await useFetch('https://bertakang.pythonanywhere.com/', {
   pick: ['fruit_cards']
@@ -29,7 +29,7 @@ const fruitCards = data.value.fruit_cards;
                 <p>{{ card.description }}</p>
               </div>
               <div class="card-click">
-                <NuxtLink :to="`/product/Fruit/${card.name}`"><button>Learn More &raquo;</button></NuxtLink>
+                <p>Click to See More &raquo;</p>
               </div>
             </div>
           </div>
@@ -139,7 +139,6 @@ p {
 .card-click>p {
   color: rgb(70, 216, 70);
 }
-
 
 @media screen and (max-width: 991px) {
   h1 {
