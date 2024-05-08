@@ -18,7 +18,6 @@ const recipeCards = data.value.recipe_cards;
           <div class="wrapper">
             <div class="header">
               <h3>{{ card.name }}</h3>
-              <p>{{ card.type }}</p>
             </div>
             <div class="card-image">
               <img :src="'https://www.pythonanywhere.com/user/bertakang/files/home/bertakang/mysite/' + card.file_path">

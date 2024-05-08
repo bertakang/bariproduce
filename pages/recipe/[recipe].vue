@@ -5,8 +5,8 @@ definePageMeta({
 })
 
 //route parameters
-const route = useRoute()
-const { recipe } = route.params
+const route = useRoute();
+const { recipe } = route.params;
 const product = route.params.recipe;
 
 //get recipe data from API
@@ -26,14 +26,10 @@ async function getrecipeData() {
 
 const recipeData = await getrecipeData();
 
-
 const ingredients = recipeData.ingredients;
 const directions = recipeData.directions;
 const ingredientsList = ingredients.split('.').map(item => item.trim());
 const directionsList = directions.split('.').map(item => item.trim());
-
-
-console.log(ingredientsList);
 </script>
 
 <template>
