@@ -96,6 +96,7 @@ p {
   border-radius: 20px;
   height: 100%;
   width: 100%;
+  z-index: 11;
 }
 
 .card-wrapper:hover {

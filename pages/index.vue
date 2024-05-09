@@ -5,6 +5,8 @@ definePageMeta({
 </script>
 
 <template>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <section id="home">
     <div class="wrapper">
       <img src="../assets/cherry-devider.jpg" alt="BARI Produce cherries.">

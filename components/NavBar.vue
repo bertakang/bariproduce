@@ -61,9 +61,9 @@ const closeRecipeDropdown = () => {
 
 //mobile menu
 const toggleMobileMenu = () => {
-
-  //toggle mobile menu button
+  // Toggle mobile menu button
   const mobileNav = document.querySelector('.navlinks');
+  const navBar = document.querySelector('.navbar');
 
   if (mobileNav) {
     const mobileNavDisplay = window.getComputedStyle(mobileNav).display;
@@ -72,11 +72,13 @@ const toggleMobileMenu = () => {
       mobileNav.style.display = "flex";
     } else {
       mobileNav.style.display = "none";
+      mobileNav.style.zIndex = "0";
     }
   }
-  //toggle the background
+  // Toggle the background (assuming navBool is defined elsewhere)
   navBool.value = !navBool.value;
 }
+
 </script>
 
 <template>
@@ -86,61 +88,70 @@ const toggleMobileMenu = () => {
         <div class="logo-wrapper">
           <img src="~/assets/logo-white.png" alt="White version of the BARI Produce logo.">
         </div>
-      </div>
-      <div class="mobile-navlinks-wrapper">
-        <div class="mobile-navlinks">
-          <button class="mobile-menu-btn" @click="toggleMobileMenu()">MENU</button>
+        <div class="mobile-navlinks-wrapper">
+          <div class="mobile-navlinks">
+            <button class="mobile-menu-btn" @click="toggleMobileMenu()">MENU</button>
+          </div>
         </div>
+
       </div>
       <Transition>
         <div class="navlinks-wrapper">
-        <nav>
-          <ul class="navlinks">
-            <li><a @click.prevent="scrollToSection('home')">HOME</a></li>
-            <li><a @click.prevent="scrollToSection('about')">ABOUT</a></li>
-            <div class="dropdown">
-              <li><a @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
-              <div class="primary-dropdown" @mouseleave="closeProductDropdown()">
-                <Transition>
-                  <div class="primary-link-wrapper" v-show="productDropdownBool">
-                    <div class="primary-link" @mouseover="openFruitDropdown()">
-                      <li>Fruits</li>
-                    </div>
-                    <Transition>
-                      <div class="secondary-dropdown" v-show="fruitdropdownBool">
-                        <li v-for="fruitCard in fruitCards" :to="'/product/' + fruitCard.type + '/' + fruitCard.name" :key="fruitCard.id"><NuxtLink>{{ fruitCard.name }}</NuxtLink></li>
+          <nav>
+            <ul class="navlinks">
+              <li><a @click.prevent="scrollToSection('home')">HOME</a></li>
+              <li><a @click.prevent="scrollToSection('about')">ABOUT</a></li>
+              <div class="dropdown">
+                <li><a @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
+                <div class="primary-dropdown" @mouseleave="closeProductDropdown()">
+                  <Transition>
+                    <div class="primary-link-wrapper" v-show="productDropdownBool">
+                      <div class="primary-link" @mouseover="openFruitDropdown()">
+                        <li>Fruits</li>
                       </div>
-                    </Transition>
-                  </div>
-                </Transition>
-                <Transition>
-                  <div class="primary-link-wrapper" v-show="productDropdownBool">
-                    <div class="primary-link" @mouseover="openGrapeDropdown()">
-                      <li>Grapes</li>
+                      <Transition>
+                        <div class="secondary-dropdown" v-show="fruitdropdownBool">
+                          <li v-for="fruitCard in fruitCards" :to="'/product/' + fruitCard.type + '/' + fruitCard.name"
+                            :key="fruitCard.id">
+                            <NuxtLink>{{ fruitCard.name }}</NuxtLink>
+                          </li>
+                        </div>
+                      </Transition>
                     </div>
-                    <Transition>
-                      <div class="secondary-dropdown" v-show="grapedropdownBool">
-                        <li  v-for="grapeCard in grapeCards" :to="'/product/' + grapeCard.type + '/' + grapeCard.name" :key="grapeCard.id"><NuxtLink>{{ grapeCard.name }}</NuxtLink></li>
+                  </Transition>
+                  <Transition>
+                    <div class="primary-link-wrapper" v-show="productDropdownBool">
+                      <div class="primary-link" @mouseover="openGrapeDropdown()">
+                        <li>Grapes</li>
                       </div>
-                    </Transition>
-                  </div>
-                </Transition>
+                      <Transition>
+                        <div class="secondary-dropdown" v-show="grapedropdownBool">
+                          <li v-for="grapeCard in grapeCards" :to="'/product/' + grapeCard.type + '/' + grapeCard.name"
+                            :key="grapeCard.id">
+                            <NuxtLink>{{ grapeCard.name }}</NuxtLink>
+                          </li>
+                        </div>
+                      </Transition>
+                    </div>
+                  </Transition>
+                </div>
               </div>
-            </div>
-            <div class="dropdown" >
-              <li><a @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
-              <div class="primary-dropdown" @mouseleave="closeRecipeDropdown()"> 
-                <div class="primary-link-wrapper" v-show="recipeDropdownBool">
-                  <div class="primary-link">
-                    <li v-for="recipeCard in recipeCards" :to="'/recipe/' + recipeCard.name" :key="recipeCard.id"><NuxtLink >{{ recipeCard.name }}</NuxtLink></li>
+              <div class="dropdown">
+                <li><a @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
+                <div class="primary-dropdown" @mouseleave="closeRecipeDropdown()">
+                  <div class="primary-link-wrapper" v-show="recipeDropdownBool">
+                    <div class="primary-link">
+                      <li v-for="recipeCard in recipeCards" :to="'/recipe/' + recipeCard.name" :key="recipeCard.id">
+                        <NuxtLink>{{ recipeCard.name }}</NuxtLink>
+                      </li>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <li><a @click.prevent="scrollToSection('contact')">CONTACT</a></li>
-          </ul>
-        </nav>
-      </div>
+              <li><a @click.prevent="scrollToSection('contact')">CONTACT</a></li>
+            </ul>
+          </nav>
+        </div>
       </Transition>
     </div>
     <Transition>
@@ -160,7 +171,7 @@ img {
 }
 
 li {
-  padding: 4px 8px;
+  padding: 4px 0px;
   font-family: 'Archivo', sans-serif;
   font-size: 20px;
   font-weight: bold;
@@ -184,7 +195,7 @@ li:hover {
   background: linear-gradient(to right, #aa5486, #7E315D);
   height: 100px;
   width: 100vw;
-  z-index: 10000;
+  z-index: 10;
 }
 
 .nav-bg {
@@ -204,7 +215,7 @@ li:hover {
 
 /* mobile nav elements */
 .mobile-menu-btn {
-  display: flex;
+  display: none;
   padding: 4px 12px;
   color: #7E315D;
   font-size: 24px;
@@ -215,19 +226,11 @@ li:hover {
 }
 
 .mobile-navlinks-wrapper {
-  height: 100%;
   display: none;
+  height: 100%;
   padding: 0px 32px;
 }
 
-.mobile-navlinks {
-  display: flex;
-  justify-content: end;
-  align-self: center;
-  width: 100%;
-  height: fit-content;
-
-}
 
 /* regular nav elements */
 .navlinks-wrapper {
@@ -259,7 +262,7 @@ li:hover {
   top: 100px;
   height: 150%;
   width: 100%;
-  z-index: 1000;
+  z-index: 5;
 }
 
 .primary-dropdown {
@@ -307,12 +310,45 @@ li:hover {
 }
 
 @media screen and (max-width: 991px) {
-  .navbar {
-    background: none;
-    height: 100vh;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 1fr;
+  .mobile-navlinks {
+  border: 2px yellow dashed;
+  display: flex;
+  justify-content: end;
+  align-self: center;
+  width: 100%;
+  height: fit-content;
+}
+
+  .mobile-menu-btn {
+    display:flex;
   }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    height:100px;
+    width: 100vw;
+
+  }
+
+  .logo-wrapper{
+    height: fit-content;
+  }
+
+  .mobile-navlinks-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: 0px 16px;
+  }  
+
+  .mobile-navlinks {
+    display: flex;
+    width: fit-content;
+  }
+
+
 
   .nav-bg {
     display: flex;
@@ -321,7 +357,7 @@ li:hover {
     width: 100%;
     top: 0;
     position: fixed;
-    z-index: 9999;
+    z-index: 3;
   }
 
   .primary-bg {
@@ -330,26 +366,23 @@ li:hover {
   }
 
 
-  /* menu button */
-  .mobile-navlinks-wrapper {
-    display: flex;
-
-  }
-
   /* navigation links */
   .navlinks-wrapper {
-    grid-column: 1 / span 2;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    top: 100px;
+    position: absolute;
+    right: 0px;
     padding: 0px 16px;
-    align-content: start;
   }
 
   .navlinks {
     display: flex;
     position: static;
-    height: 100%;
+    width: fit-content;
+    height: fit-content;
     flex-direction: column;
     text-align: right;
+
     padding: 12px 0px;
 
   }
@@ -364,17 +397,17 @@ li:hover {
   /* dropdown menu items */
   .dropdown {
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
     position: static;
     margin: 0;
     padding: 12px 0px;
 
   }
 
-.primary-dropdown {
-  position: static;
+  .primary-dropdown {
+    position: static;
 
-}
+  }
 
   .primary-link {
     margin: 4px 0px;
