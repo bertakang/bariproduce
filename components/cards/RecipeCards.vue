@@ -20,7 +20,7 @@ const recipeCards = data.value.recipe_cards;
               <h3>{{ card.name }}</h3>
             </div>
             <div class="card-image">
-              <img :src="'https://www.pythonanywhere.com/user/bertakang/files/home/bertakang/mysite/' + card.file_path">
+              <img :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`">
             </div>
             <div class="text-wrapper">
               <div class="card-description">

@@ -213,13 +213,13 @@ p {
 }
 
 .address {
-    padding: 8px;
+    padding: 8px 0px;
 }
 
 .email {
     display: flex;
     flex-direction: row;
-    padding: 8px;
+    padding: 8px 0px;
     align-items: center;
     justify-content: space-between;
 }

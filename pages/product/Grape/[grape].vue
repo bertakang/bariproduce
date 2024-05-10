@@ -51,7 +51,7 @@ const grapeImages = await getGrapeImages();
 //photo modal toggle
 
 const getImageURL = (filePath) => {
-  return 'https://www.pythonanywhere.com/user/bertakang/files/home/bertakang/mysite/' + filePath;
+  return 'https://bertakang.pythonanywhere.com/mysite/' + filePath;
 }
 
 const modalBool = ref<boolean>(false);
