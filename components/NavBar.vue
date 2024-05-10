@@ -25,9 +25,6 @@ const scrollToSection = (sectionId: string) => {
   }
 };
 
-//product dropdown
-
-
 
 //product dropdown
 const openProductDropdown = () => {
@@ -308,6 +305,10 @@ li:hover {
 }
 
 @media screen and (max-width: 991px) {
+  .navbar {
+    height: 64px;
+  }
+  
   .wrapper {
   height: 100%;
   align-content: center;
@@ -321,7 +322,7 @@ li:hover {
     top: 0;
     right: 0;
     left: 0;
-    height: 100px;
+    height: 64px;
     width: 100%;
     padding: 0px 0px;
   }
@@ -329,10 +330,13 @@ li:hover {
   .logo-wrapper {
     height: fit-content;
     margin: 0px 16px;
+    width: 100px;
   }
 
   .mobile-navlinks-wrapper {
     display: flex;
+    position:static;
+    top:0;
     width: 100%;
     height: 100%;
     align-items: center;
@@ -350,9 +354,8 @@ li:hover {
     display: flex;
     padding: 4px 12px;
     color: #7E315D;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
-    border: 1px solid #F9E4F0;
     border-radius: 20px;
     background-color: #F9E4F0;
   }
@@ -360,7 +363,7 @@ li:hover {
  /* navigation links */
  .navlinks-wrapper {
     display: flex;
-    top: 100px;
+    top: 64px;
     position: absolute;
     right: 0px;
     padding: 0px 16px;
@@ -414,7 +417,7 @@ li:hover {
   .nav-bg {
     display: flex;
     background: linear-gradient(to right, #aa5486, #7E315D);
-    height: 100px;
+    height: 64px;
     width: 100%;
     top: 0;
     position: fixed;
@@ -423,7 +426,7 @@ li:hover {
 
   .primary-bg {
     background: linear-gradient(to bottom, #7a2756, transparent);
-    top: 100px;
+    top: 64px;
   }
 
 }

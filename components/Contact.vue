@@ -228,7 +228,7 @@ p {
     display: grid;
     grid-template-columns: 1fr;
     gap: 12px;
-    margin-bottom: 8px;
+    padding-bottom: 8px;
 }
 
 
@@ -247,6 +247,10 @@ p {
     }
     .email-wrapper {
         grid-column: 1 / span 2;
+    }
+
+    .disclaimer-wrapper {
+        margin-bottom: 16px;
     }
 }
 
