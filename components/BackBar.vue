@@ -29,6 +29,7 @@
 @media screen and (max-width: 991px) {
 .wrapper {
   height: 64px;
+  padding: 0px 16px;
 }
 }
 </style>
