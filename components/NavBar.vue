@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 //route information
 const route = useRoute();
@@ -23,15 +23,20 @@ const fruitdropdownBool = ref<boolean>(false);
 const grapedropdownBool = ref<boolean>(false);
 const navBool = ref<boolean>(false);
 
+
+const navBGBool = ref<boolean>(false);
+
+
+//product dropdown
 const openProductDropdown = () => {
   productDropdownBool.value = true;
-  navBool.value = true;
+  navBGBool.value = true;
 };
 
 const closeProductDropdown = () => {
   setTimeout(() => {
     productDropdownBool.value = false;
-    navBool.value = false;
+    navBGBool.value = false;
   }, 300);
 }
 
@@ -49,41 +54,38 @@ const recipeDropdownBool = ref<boolean>(false);
 
 const openRecipeDropdown = () => {
   recipeDropdownBool.value = true;
-  navBool.value = true;
 };
 
 const closeRecipeDropdown = () => {
   setTimeout(() => {
     recipeDropdownBool.value = false;
-    navBool.value = false;
+    navBGBool.value = false;
   }, 300);
 }
 
 //mobile menu
 const toggleMobileMenu = () => {
-  // Toggle mobile menu button
-  const mobileNav = document.querySelector('.navlinks');
-  const navBar = document.querySelector('.navbar');
+    navBGBool.value = !navBGBool.value;
+    navBool.value = !navBool.value;
+  };
 
-  if (mobileNav) {
-    const mobileNavDisplay = window.getComputedStyle(mobileNav).display;
 
-    if (mobileNavDisplay === "none") {
-      mobileNav.style.display = "flex";
+onMounted(() => {
+  const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+
+    if (screenWidth <= 991) {
+      navBool.value = false;
     } else {
-      mobileNav.style.display = "none";
-      mobileNav.style.zIndex = "0";
+      navBool.value = true;
     }
-  }
-  // Toggle the background (assuming navBool is defined elsewhere)
-  navBool.value = !navBool.value;
-}
+});
+
 
 </script>
 
 <template>
   <header>
-    <div class="navbar" @click="closeDropdown()">
+    <div class="navbar">
       <div class="wrapper">
         <div class="logo-wrapper">
           <img src="~/assets/logo-white.png" alt="White version of the BARI Produce logo.">
@@ -93,12 +95,11 @@ const toggleMobileMenu = () => {
             <button class="mobile-menu-btn" @click="toggleMobileMenu()">MENU</button>
           </div>
         </div>
-
       </div>
       <Transition>
-        <div class="navlinks-wrapper">
+        <div class="navlinks-wrapper" v-show="navBool">
           <nav>
-            <ul class="navlinks">
+            <ul class="navlinks" >
               <li><a @click.prevent="scrollToSection('home')">HOME</a></li>
               <li><a @click.prevent="scrollToSection('about')">ABOUT</a></li>
               <div class="dropdown">
@@ -155,7 +156,7 @@ const toggleMobileMenu = () => {
       </Transition>
     </div>
     <Transition>
-      <div class="primary-bg" v-show="navBool"></div>
+      <div class="primary-bg" v-show="navBGBool"></div>
     </Transition>
     <div class="nav-bg"></div>
   </header>
@@ -216,19 +217,11 @@ li:hover {
 /* mobile nav elements */
 .mobile-menu-btn {
   display: none;
-  padding: 4px 12px;
-  color: #7E315D;
-  font-size: 24px;
-  font-weight: 600;
-  border: 1px solid #F9E4F0;
-  border-radius: 20px;
-  background-color: #F9E4F0;
 }
 
 .mobile-navlinks-wrapper {
   display: none;
-  height: 100%;
-  padding: 0px 32px;
+
 }
 
 
@@ -310,46 +303,109 @@ li:hover {
 }
 
 @media screen and (max-width: 991px) {
-  .mobile-navlinks {
-  border: 2px yellow dashed;
-  display: flex;
-  justify-content: end;
-  align-self: center;
-  width: 100%;
-  height: fit-content;
+  .wrapper {
+  height: 100%;
+  align-content: center;
+  padding: 0px 32px;
 }
-
-  .mobile-menu-btn {
-    display:flex;
-  }
-
+/* mobile navigation links */
   .wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     position: fixed;
-    height:100px;
-    width: 100vw;
-
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    padding: 0px 0px;
   }
 
-  .logo-wrapper{
+  .logo-wrapper {
+    height: fit-content;
+    margin: 0px 16px;
+  }
+
+  .mobile-navlinks-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .mobile-navlinks {
+    display: flex;
+    margin: 0px 16px;
+    width: fit-content;
     height: fit-content;
   }
 
-  .mobile-navlinks-wrapper{
+  .mobile-menu-btn {
     display: flex;
-    align-items: center;
-    justify-content: end;
-    margin: 0px 16px;
-  }  
-
-  .mobile-navlinks {
-    display: flex;
-    width: fit-content;
+    padding: 4px 12px;
+    color: #7E315D;
+    font-size: 24px;
+    font-weight: 600;
+    border: 1px solid #F9E4F0;
+    border-radius: 20px;
+    background-color: #F9E4F0;
   }
 
+ /* navigation links */
+ .navlinks-wrapper {
+    display: flex;
+    top: 100px;
+    position: absolute;
+    right: 0px;
+    padding: 0px 16px;
+  }
 
+  .navlinks {
+    display: flex;
+    position: static;
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    text-align: right;
+    padding: 12px 0px;
 
+  }
+
+  .navlinks>li {
+    padding: 12px 0px;
+    margin: 4px 0px;
+    font-size: 20px;
+  }
+
+  /* dropdown menu items */
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    margin: 0;
+    padding: 12px 0px;
+
+  }
+
+  .primary-dropdown {
+    position: static;
+  }
+
+  .primary-link {
+    margin: 4px 0px;
+  }
+
+  .primary-link>li {
+    font-weight: normal;
+    font-size: 18px;
+  }
+
+  .secondary-dropdown {
+    margin-bottom: 4px;
+  }
+
+  /* background color items */
   .nav-bg {
     display: flex;
     background: linear-gradient(to right, #aa5486, #7E315D);
@@ -365,66 +421,5 @@ li:hover {
     top: 100px;
   }
 
-
-  /* navigation links */
-  .navlinks-wrapper {
-    display: flex;
-    top: 100px;
-    position: absolute;
-    right: 0px;
-    padding: 0px 16px;
-  }
-
-  .navlinks {
-    display: flex;
-    position: static;
-    width: fit-content;
-    height: fit-content;
-    flex-direction: column;
-    text-align: right;
-
-    padding: 12px 0px;
-
-  }
-
-  .navlinks>li {
-    padding: 12px 0px;
-    margin: 4px 0px;
-    font-size: 20px;
-
-  }
-
-  /* dropdown menu items */
-  .dropdown {
-    display: flex;
-    flex-direction: column;
-    position: static;
-    margin: 0;
-    padding: 12px 0px;
-
-  }
-
-  .primary-dropdown {
-    position: static;
-
-  }
-
-  .primary-link {
-    margin: 4px 0px;
-
-  }
-
-  .primary-link>li {
-    font-weight: normal;
-    font-size: 18px;
-  }
-
-  .secondary-dropdown {
-    margin-bottom: 4px;
-  }
 }
-
-@media screen and (max-width: 667px) {}
-
-@media screen and (max-width: 300px) {}
 </style>
