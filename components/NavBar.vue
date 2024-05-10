@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
+const productDropdownBool = ref<boolean>(false);
+const fruitdropdownBool = ref<boolean>(false);
+const grapedropdownBool = ref<boolean>(false);
+const navBool = ref<boolean>(false);
+const navBGBool = ref<boolean>(false);
+
 //route information
 const route = useRoute();
 const { data } = await useFetch('https://bertakang.pythonanywhere.com/');
@@ -14,17 +20,13 @@ const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
+    navBGBool.value = false;
+    navBool.value = false;
   }
 };
 
 //product dropdown
-const productDropdownBool = ref<boolean>(false);
-const fruitdropdownBool = ref<boolean>(false);
-const grapedropdownBool = ref<boolean>(false);
-const navBool = ref<boolean>(false);
 
-
-const navBGBool = ref<boolean>(false);
 
 
 //product dropdown
@@ -44,7 +46,6 @@ const openFruitDropdown = () => {
   fruitdropdownBool.value = true;
 }
 
-
 const openGrapeDropdown = () => {
   grapedropdownBool.value = true;
 }
@@ -54,6 +55,7 @@ const recipeDropdownBool = ref<boolean>(false);
 
 const openRecipeDropdown = () => {
   recipeDropdownBool.value = true;
+  navBGBool.value = true;
 };
 
 const closeRecipeDropdown = () => {
@@ -63,12 +65,17 @@ const closeRecipeDropdown = () => {
   }, 300);
 }
 
+//PC menu
+const toggleMenu = () => {
+  navBGBool.value = !navBGBool.value;
+  navBool.value = !navBool.value;
+}
+
 //mobile menu
 const toggleMobileMenu = () => {
     navBGBool.value = !navBGBool.value;
     navBool.value = !navBool.value;
   };
-
 
 onMounted(() => {
   const screenWidth = window.innerWidth || document.documentElement.clientWidth;
@@ -104,33 +111,31 @@ onMounted(() => {
               <li><a @click.prevent="scrollToSection('about')">ABOUT</a></li>
               <div class="dropdown">
                 <li><a @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
-                <div class="primary-dropdown" @mouseleave="closeProductDropdown()">
+                <div class="primary-dropdown" @mouseleave="closeProductDropdown()" @click="openProductDropdown()">
                   <Transition>
                     <div class="primary-link-wrapper" v-show="productDropdownBool">
-                      <div class="primary-link" @mouseover="openFruitDropdown()">
+                      <div class="primary-link" @mouseover="openFruitDropdown()" @click="openFruitDropdown()">
                         <li>Fruits</li>
                       </div>
                       <Transition>
                         <div class="secondary-dropdown" v-show="fruitdropdownBool">
-                          <li v-for="fruitCard in fruitCards" :to="'/product/' + fruitCard.type + '/' + fruitCard.name"
-                            :key="fruitCard.id">
-                            <NuxtLink>{{ fruitCard.name }}</NuxtLink>
-                          </li>
+                          <ul v-for="fruitCard in fruitCards" :key="fruitCard.id">
+                            <NuxtLink :to="`/product/Fruit/${fruitCard.name}`"><li>{{ fruitCard.name }}</li></NuxtLink>
+                          </ul>
                         </div>
                       </Transition>
                     </div>
                   </Transition>
                   <Transition>
                     <div class="primary-link-wrapper" v-show="productDropdownBool">
-                      <div class="primary-link" @mouseover="openGrapeDropdown()">
+                      <div class="primary-link" @mouseover="openGrapeDropdown()" @click="openGrapeDropdown()">
                         <li>Grapes</li>
                       </div>
                       <Transition>
                         <div class="secondary-dropdown" v-show="grapedropdownBool">
-                          <li v-for="grapeCard in grapeCards" :to="'/product/' + grapeCard.type + '/' + grapeCard.name"
-                            :key="grapeCard.id">
-                            <NuxtLink>{{ grapeCard.name }}</NuxtLink>
-                          </li>
+                          <ul v-for="grapeCard in grapeCards">
+                            <NuxtLink :to="`/product/Grape/${grapeCard.name}`"><li>{{ grapeCard.name }}</li></NuxtLink>
+                          </ul>
                         </div>
                       </Transition>
                     </div>
@@ -139,12 +144,12 @@ onMounted(() => {
               </div>
               <div class="dropdown">
                 <li><a @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
-                <div class="primary-dropdown" @mouseleave="closeRecipeDropdown()">
+                <div class="primary-dropdown" @mouseleave="closeRecipeDropdown()" @click="openRecipeDropdown()">
                   <div class="primary-link-wrapper" v-show="recipeDropdownBool">
                     <div class="primary-link">
-                      <li v-for="recipeCard in recipeCards" :to="'/recipe/' + recipeCard.name" :key="recipeCard.id">
-                        <NuxtLink>{{ recipeCard.name }}</NuxtLink>
-                      </li>
+                      <ul v-for="recipeCard in recipeCards">
+                        <NuxtLink :to="`/Recipe/${recipeCard.name}`"><li>{{ recipeCard.name }}</li></NuxtLink>
+                      </ul>
                     </div>
                   </div>
                 </div>
