@@ -151,7 +151,7 @@ img {
 }
 
 a {
-    font-family: 'Lato', 'sans-serif';
+    font-family: 'Archivo', sans-serif;
     font-weight: bold;
     font-size: 20px;
     text-transform: uppercase;
@@ -161,7 +161,7 @@ a {
 
 
 .nav-link {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Archivo', sans-serif;
     font-size: 22px;
     text-transform: uppercase;
     color: black;
@@ -169,14 +169,14 @@ a {
 
 
 h2 {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Archivo', sans-serif;
     font-size: 20px;
     font-weight: 600;
     margin: 0;
 }
 
 p {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Archivo', sans-serif;
     font-size: 20px;
     color: #7E315D;
     margin: 0;

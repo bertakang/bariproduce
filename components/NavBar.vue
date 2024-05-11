@@ -18,11 +18,17 @@ const recipeCards = data.value.recipe_cards;
 //navbar scroll behavior
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-    navBGBool.value = false;
-    navBool.value = false;
-  }
+  const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+
+    if (screenWidth <= 991) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      navBool.value = false;
+      navBGBool.value = false;
+    } else {
+      element.scrollIntoView({ behavior: 'smooth' });
+      navBool.value = true;
+      navBGBool.value = false;
+    }
 };
 
 
@@ -62,12 +68,6 @@ const closeRecipeDropdown = () => {
   }, 300);
 }
 
-//PC menu
-const toggleMenu = () => {
-  navBGBool.value = !navBGBool.value;
-  navBool.value = !navBool.value;
-}
-
 //mobile menu
 const toggleMobileMenu = () => {
     navBGBool.value = !navBGBool.value;
@@ -104,8 +104,8 @@ onMounted(() => {
         <div class="navlinks-wrapper" v-show="navBool">
           <nav>
             <ul class="navlinks" >
-              <li><a @click.prevent="scrollToSection('home')">HOME</a></li>
-              <li><a @click.prevent="scrollToSection('about')">ABOUT</a></li>
+              <li><a @click.prevent="scrollToSection('home')" >HOME</a></li>
+              <li><a @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</a></li>
               <div class="dropdown">
                 <li><a @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
                 <div class="primary-dropdown" @mouseleave="closeProductDropdown()" @click="openProductDropdown()">
