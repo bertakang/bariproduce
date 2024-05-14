@@ -118,7 +118,7 @@ p {
 
 .card-image {
   margin: 8px 0px;
-  height: 200px;
+  height: 275px;
 }
 
 .card-description {
