@@ -129,11 +129,13 @@ const scrollToSection = (sectionId: string) => {
 <style scoped>
 .wrapper {
     margin: 0px 8px;
+    padding-top: 100px;
+    border: 3px dashed red;
 }
 
 #contact {
+
     background-color: #FED1EB;
-    height: 100vh;
     align-content: end;
 }
 
@@ -210,6 +212,7 @@ p {
 .email-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
 }
 
 .address {
