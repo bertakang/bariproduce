@@ -40,8 +40,17 @@ const openProductDropdown = () => {
 
 const closeProductDropdown = () => {
   setTimeout(() => {
+    const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+    
     productDropdownBool.value = false;
+    recipeDropdownBool.value = false;
     navBGBool.value = false;
+
+    if (screenWidth <= 991) {
+      navBool.value = false;
+    } else {
+      navBool.value = true;
+    }
   }, 300);
 }
 
@@ -61,12 +70,6 @@ const openRecipeDropdown = () => {
   navBGBool.value = true;
 };
 
-const closeRecipeDropdown = () => {
-  setTimeout(() => {
-    recipeDropdownBool.value = false;
-    navBGBool.value = false;
-  }, 300);
-}
 
 //mobile menu
 const toggleMobileMenu = () => {
@@ -108,7 +111,7 @@ onMounted(() => {
               <li><a @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</a></li>
               <div class="dropdown">
                 <li><a @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
-                <div class="primary-dropdown" @mouseleave="closeProductDropdown()" @click="openProductDropdown()">
+                <div class="primary-dropdown" @click="openProductDropdown()">
                   <Transition>
                     <div class="primary-link-wrapper" v-show="productDropdownBool">
                       <div class="primary-link" @mouseover="openFruitDropdown()" @click="openFruitDropdown()">
@@ -141,7 +144,7 @@ onMounted(() => {
               </div>
               <div class="dropdown">
                 <li><a @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
-                <div class="primary-dropdown" @mouseleave="closeRecipeDropdown()" @click="openRecipeDropdown()">
+                <div class="primary-dropdown" @click="openRecipeDropdown()">
                   <div class="primary-link-wrapper" v-show="recipeDropdownBool">
                     <div class="primary-link">
                       <ul v-for="recipeCard in recipeCards">
@@ -158,7 +161,7 @@ onMounted(() => {
       </Transition>
     </div>
     <Transition>
-      <div class="primary-bg" v-show="navBGBool"></div>
+      <div class="primary-bg" v-show="navBGBool" @click="closeProductDropdown()" ></div>
     </Transition>
     <div class="nav-bg"></div>
   </header>
@@ -182,6 +185,7 @@ li {
   list-style: none;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  justify-self: center;
 }
 
 li:hover {
@@ -240,18 +244,19 @@ li:hover {
 }
 
 .navlinks {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 24px;
   padding-left: 0;
   margin: 0px;
+  align-items: center;
 }
 
 /* products dropdown */
 .dropdown {
   display: flex;
   flex-direction: column;
-
+  width: fit-content;
 }
 
 .primary-bg {
@@ -283,7 +288,6 @@ li:hover {
 
 .secondary-dropdown {
   margin-bottom: 12px;
-  text-indent: 18px;
 }
 
 .secondary-dropdown li {
@@ -309,6 +313,10 @@ li:hover {
 }
 
 @media screen and (max-width: 991px) {
+  li {
+    justify-self: right;
+  }
+
   .navbar {
     height: 64px;
   }
@@ -357,9 +365,14 @@ li:hover {
   .mobile-menu-btn {
     display: flex;
     padding: 4px 12px;
-    color: #7E315D;
+    color: #FED1EB;
     font-size: 20px;
     font-weight: 600;
+    background-color: transparent;
+  }
+
+  .mobile-menu-btn:hover {
+    color: #7E315D;
     border-radius: 20px;
     background-color: #F9E4F0;
   }
@@ -371,8 +384,10 @@ li:hover {
     position: absolute;
     right: 0px;
     padding: 0px 16px;
+    align-content: end;
   }
 
+ 
   .navlinks {
     display: flex;
     position: static;
@@ -381,13 +396,17 @@ li:hover {
     flex-direction: column;
     text-align: right;
     padding: 12px 0px;
-
+    right:0;
   }
 
   .navlinks>li {
+    display: flex;
+    width: 100%;
     padding: 12px 0px;
     margin: 4px 0px;
     font-size: 20px;
+    text-align: right;
+    justify-content: end;
   }
 
   /* dropdown menu items */
@@ -397,7 +416,7 @@ li:hover {
     position: static;
     margin: 0;
     padding: 12px 0px;
-
+    width: 100%;
   }
 
   .primary-dropdown {
