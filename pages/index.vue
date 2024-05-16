@@ -94,6 +94,8 @@ definePageMeta({
       <div class="product-image-wrapper">
         <div class="product-image">
           <img src="../assets/tablegrapes.png" alt="Description of the image">
+          <img src="../assets/tablegrapesbox.png" alt="Description of the image">
+
         </div>
       </div>
     </div>
@@ -197,8 +199,13 @@ img {
 }
 
 .product-image-wrapper {
+  display: flex;
   height: 100%;
-  align-content: center;
+  align-items: center;
+}
+
+.product-image {
+  width: 100%;
 }
 
 .one-third-list {

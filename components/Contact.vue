@@ -130,7 +130,6 @@ const scrollToSection = (sectionId: string) => {
 .wrapper {
     margin: 0px 8px;
     padding-top: 100px;
-    border: 3px dashed red;
 }
 
 #contact {
