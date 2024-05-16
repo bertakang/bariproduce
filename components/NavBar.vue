@@ -207,13 +207,17 @@ li:hover {
 
 /* logo elements */
 .wrapper {
+  display: flex;
   height: 100%;
-  align-content: center;
   padding: 0px 32px;
+  align-self: center;
 }
 
 .logo-wrapper {
+  display: flex;
   width: 150px;
+  align-items: center;
+  height: 100%;
 }
 
 /* mobile nav elements */
