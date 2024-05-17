@@ -138,8 +138,10 @@ p {
 }
 
 .card-click>p {
-  color: rgb(70, 216, 70);
+  color: #FED1EB;
 }
+
+
 
 @media screen and (max-width: 991px) {
   h1 {

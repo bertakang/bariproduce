@@ -127,6 +127,18 @@ const scrollToSection = (sectionId: string) => {
 </template>
 
 <style scoped>
+button > a {
+    color: #FED1EB;
+    background-color:#7E315D;
+    cursor: pointer;
+}
+
+button > a:hover {
+    color: whitesmoke;
+}
+
+
+
 .wrapper {
     margin: 0px 8px;
     padding-top: 100px;
@@ -157,7 +169,6 @@ a {
     font-size: 20px;
     text-transform: uppercase;
     cursor: pointer;
-    color: #7E315D;
 }
 
 

@@ -6,9 +6,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color:#FED1EB;
-}
 
 section {
     min-height: 100vh;
@@ -61,12 +58,14 @@ button {
     font-family: 'Archivo', sans-serif;
     font-size: 20px;
     font-weight: 600;
-    color: #7E315D;
+    color: #FED1EB;
     border: none;
     border-radius: 20px;
     padding: 8px 16px;
-    background-color: rgb(57, 192, 57);
+    background-color:#7E315D;
 }
+
+
 
 @media screen and (max-width: 991px) {
     h1 {

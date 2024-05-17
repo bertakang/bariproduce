@@ -293,9 +293,11 @@ li:hover {
   transition: opacity 1s ease-in-out;
   position: absolute;
   top: 100%;
+
 }
 
 .primary-dropdown li {
+  display: flex;
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
@@ -306,6 +308,8 @@ li:hover {
 .secondary-dropdown {
   display: flex;
   flex-direction: column;
+  margin-top: 4px;
+  margin-bottom: 16px;
 }
 
 .secondary-dropdown li {

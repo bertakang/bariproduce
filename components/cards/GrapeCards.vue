@@ -137,7 +137,7 @@ p {
 }
 
 .card-click>p {
-  color: rgb(70, 216, 70);
+  color: #FED1EB;
 }
 
 
