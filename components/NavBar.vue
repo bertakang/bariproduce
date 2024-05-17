@@ -176,6 +176,11 @@ img {
   object-fit: contain;
 }
 
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
 li {
   padding: 4px 0px;
   font-family: 'Archivo', sans-serif;
@@ -185,7 +190,6 @@ li {
   list-style: none;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  justify-self: center;
 }
 
 li:hover {
@@ -298,20 +302,19 @@ li:hover {
   text-decoration-color: #FED1EB;
 }
 
+
 .secondary-dropdown {
-  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .secondary-dropdown li {
+  display: flex; 
   font-size: 20px;
   font-weight: normal;
   text-transform: capitalize;
-  text-decoration: none;
 }
 
-.secondary-dropdown li:hover {
-  outline: .5px solid #FED1EB;
-}
 
 /*transitions*/
 .v-enter-active,
@@ -325,6 +328,11 @@ li:hover {
 }
 
 @media screen and (max-width: 991px) {
+  ul {
+    margin: unset;
+    padding: unset;
+}
+
   li {
     justify-self: right;
   }
@@ -365,6 +373,7 @@ li:hover {
     height: 100%;
     align-items: center;
     justify-content: end;
+
   }
 
   .mobile-navlinks {
@@ -372,6 +381,7 @@ li:hover {
     margin: 0px 16px;
     width: fit-content;
     height: fit-content;
+
   }
 
   .mobile-menu-btn {
@@ -397,6 +407,7 @@ li:hover {
     right: 0px;
     padding: 0px 16px;
     align-content: end;
+
   }
 
  
@@ -405,11 +416,19 @@ li:hover {
     position: static;
     width: fit-content;
     height: fit-content;
+    max-height: calc(100vh - 64px);
     flex-direction: column;
     text-align: right;
     padding: 12px 0px;
     right:0;
+    overflow-y: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
   }
+
+  .navlinks::-webkit-scrollbar {
+  display: none; 
+}
 
   .navlinks>li {
     display: flex;
@@ -431,8 +450,15 @@ li:hover {
     width: 100%;
   }
 
+  .dropdown > li {
+    display: flex;
+    justify-content: end;
+  }
+
   .primary-dropdown {
+    display: flex;
     position: static;
+    justify-content: end;
   }
 
   .primary-link {
@@ -440,12 +466,19 @@ li:hover {
   }
 
   .primary-link>li {
+
     font-weight: normal;
     font-size: 18px;
   }
 
   .secondary-dropdown {
+    display: flex;
     margin-bottom: 4px;
+  }
+
+  .secondary-dropdown  li {
+    display: flex;
+    justify-content: end;
   }
 
   /* background color items */
