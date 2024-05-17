@@ -252,11 +252,23 @@ li:hover {
   align-items: center;
 }
 
+
+.navlinks > li {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 /* products dropdown */
 .dropdown {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+}
+
+.dropdown > li {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .primary-bg {
