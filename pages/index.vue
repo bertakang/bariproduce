@@ -2,13 +2,28 @@
 definePageMeta({
   layout: 'home'
 })
+
+async function getMainImage() {
+  const { data } = await useFetch('https://bertakang.pythonanywhere.com/images', {
+    pick: ['main_image']
+  });
+
+  const mainImage = data.value.main_image
+  console.log(mainImage[0]);
+
+  return mainImage[0];
+}
+
+const mainImage = await getMainImage();
 </script>
 
 <template>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <section id="home">
     <div class="wrapper">
-      <img src="../assets/cherry-devider.jpg" alt="BARI Produce cherries.">
+      <img :src="`https://bertakang.pythonanywhere.com/${mainImage.file_path}`" alt="Main Image">
+
+
     </div>
   </section>
   <section id="about">
