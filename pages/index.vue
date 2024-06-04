@@ -19,11 +19,10 @@ const mainImage = await getMainImage();
 
 <template>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BARI Produce</title>
   <section id="home">
     <div class="wrapper">
       <img :src="`https://bertakang.pythonanywhere.com/${mainImage.file_path}`" alt="Main Image">
-
-
     </div>
   </section>
   <section id="about">
