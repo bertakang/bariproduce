@@ -111,10 +111,10 @@ onMounted(() => {
         <div class="navlinks-wrapper" v-show="navBool">
           <nav>
             <ul class="navlinks" >
-              <li><a @click.prevent="scrollToSection('home')" >HOME</a></li>
-              <li><a @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</a></li>
+              <li><a href="#home" @click.prevent="scrollToSection('home')" >HOME</a></li>
+              <li><a href="#about" @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</a></li>
               <div class="dropdown">
-                <li><a @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
+                <li><a href="#product" @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
                 <div class="primary-dropdown" @click="openProductDropdown()">
                   <Transition>
                     <div class="primary-link-wrapper" v-show="productDropdownBool">
@@ -124,7 +124,7 @@ onMounted(() => {
                       <Transition>
                         <div class="secondary-dropdown" v-show="fruitdropdownBool">
                           <ul v-for="fruitCard in fruitCards" :key="fruitCard.id">
-                            <NuxtLink :to="`/product/Fruit/${fruitCard.name}`"><li>{{ fruitCard.name }}</li></NuxtLink>
+                            <li><NuxtLink :to="`/product/Fruit/${fruitCard.name}`">{{ fruitCard.name }}</NuxtLink></li>
                           </ul>
                         </div>
                       </Transition>
@@ -138,7 +138,7 @@ onMounted(() => {
                       <Transition>
                         <div class="secondary-dropdown" v-show="grapedropdownBool">
                           <ul v-for="grapeCard in grapeCards">
-                            <NuxtLink :to="`/product/Grape/${grapeCard.name}`"><li>{{ grapeCard.name }}</li></NuxtLink>
+                            <li><NuxtLink :to="`/product/Grape/${grapeCard.name}`">{{ grapeCard.name }}</NuxtLink></li>
                           </ul>
                         </div>
                       </Transition>
@@ -147,18 +147,18 @@ onMounted(() => {
                 </div>
               </div>
               <div class="dropdown">
-                <li><a @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
+                <li><a href="recipes" @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
                 <div class="primary-dropdown" @click="openRecipeDropdown()">
                   <div class="primary-link-wrapper" v-show="recipeDropdownBool">
                     <div class="primary-link">
                       <ul v-for="recipeCard in recipeCards">
-                        <NuxtLink :to="`/Recipe/${recipeCard.name}`"><li>{{ recipeCard.name }}</li></NuxtLink>
+                        <li><NuxtLink :to="`/Recipe/${recipeCard.name}`">{{ recipeCard.name }}</NuxtLink></li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
-              <li><a @click.prevent="scrollToSection('contact')">CONTACT</a></li>
+              <li><a href="contact" @click.prevent="scrollToSection('contact')">CONTACT</a></li>
             </ul>
           </nav>
         </div>

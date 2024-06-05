@@ -21,6 +21,10 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+a {
+    color: #FED1EB;
+}
+
 h1 {
     font-family: 'Archivo', sans-serif;
     font-weight: 600;
