@@ -29,7 +29,7 @@ const mainImage = await getMainImage();
     <div class="sticky-grid">
       <div class="image-wrapper">
         <div class="sticky">
-          <NuxtImg format="webp" class="sticky" src="../assets/about.jpg" alt="BARI Produce employee" />
+          <NuxtImg format="webp" class="sticky" src="/about.jpg" alt="BARI Produce employee" style="width: 100%; height: 100%; object-fit: cover;"/>
         </div>
       </div>
       <div class="scrollable-about">
@@ -80,7 +80,7 @@ const mainImage = await getMainImage();
       <div class="one-third-image">
         <div class="product-image-wrapper">
           <div class="product-image">
-            <NuxtImg format="webp" src="../assets/stonefruit.png" alt="BARI Produce stonefruit" />
+            <NuxtImg format="webp" src="/stonefruit.png" alt="BARI Produce stonefruit" style="width: 100%; height: auto; object-fit: contain;"/>
           </div>
         </div>
       </div>
@@ -107,8 +107,8 @@ const mainImage = await getMainImage();
     <div class="one-third-image">
       <div class="product-image-wrapper">
         <div class="product-image">
-          <NuxtImg format="webp" src="../assets/tablegrapes.png" alt="BARI Produce table grapes" />
-          <NuxtImg format="webp" src="../assets/tablegrapesbox.png" alt="BARI Produce table grapes box" />
+          <NuxtImg format="webp" src="/tablegrapes.png" alt="BARI Produce table grapes"  style="width: 100%; height: auto; object-fit: contain;"/>
+          <NuxtImg format="webp" src="/tablegrapesbox.png" alt="BARI Produce table grapes box" style="width: 100%; height: auto; object-fit: contain;"/>
 
         </div>
       </div>
@@ -116,8 +116,6 @@ const mainImage = await getMainImage();
   </div>
   <GrapeSection></GrapeSection>
   <RecipeSection></RecipeSection>
-
-  
 </template>
 
 <style scoped>
@@ -126,7 +124,7 @@ section {
   min-height: 100vh;
 }
 
-NuxtImg format="webp" {
+img {
   height: 100%;
   width: 100%;
   object-fit: cover;
