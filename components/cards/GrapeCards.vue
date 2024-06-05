@@ -22,7 +22,7 @@ const grapeCards = data.value.grape_cards;
               <p>{{ card.type }}</p>
             </div>
             <div class="card-image">
-              <img :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" :alt='card.name'>
+              <NuxtImg format="webp"  :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" :alt='card.name' style="width: 100%; height: auto; object-fit: cover; align-self:center;" />
             </div>
             <div class="text-wrapper">
               <div class="card-description">
@@ -118,7 +118,8 @@ p {
 
 .card-image {
   margin: 8px 0px;
-  height: 200px;
+  height: 300px;
+  overflow:hidden;
 }
 
 .card-description {

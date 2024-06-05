@@ -98,7 +98,7 @@ onMounted(() => {
 <NuxtImg format="webp" 
   src="/logo-white.png"
   alt="White version of the BARI Produce logo."
-  style="width: 100%; height: auto; object-fit: contain;"
+  style="width: 128px; height: auto; object-fit: contain;"
 />
         </div>
         <div class="mobile-navlinks-wrapper">

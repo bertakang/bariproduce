@@ -20,7 +20,7 @@ const recipeCards = data.value.recipe_cards;
               <h1>{{ card.name }}</h1>
             </div>
             <div class="card-image">
-              <img :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" :alt='card.name'>
+              <NuxtImg format="webp" :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" :alt='card.name' style="width: 100%; height: auto; object-fit: cover; align-self:center;" />
             </div>
             <div class="text-wrapper">
               <div class="card-description">
@@ -43,12 +43,6 @@ a {
   flex: 0 0 33.33%;
   color: #7E315D;
   width:100%;
-}
-
-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
 
 h1 {
@@ -118,7 +112,8 @@ p {
 
 .card-image {
   margin: 8px 0px;
-  height: 275px;
+  height: 300px;
+  overflow:hidden;
 }
 
 .card-description {
