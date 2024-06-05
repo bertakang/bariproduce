@@ -96,11 +96,15 @@ onMounted(() => {
       <div class="wrapper">
         <div class="logo-wrapper">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <NuxtImg format="webp" 
   src="/logo-white.png"
   alt="White version of the BARI Produce logo."
   style="width: 100%; height: auto; object-fit: contain;"
 />
+=======
+          <img src="~/assets/logo-white.png" alt="White version of the BARI Produce logo.">
+>>>>>>> parent of 3fac9c6 (seo stuff)
 =======
           <img src="~/assets/logo-white.png" alt="White version of the BARI Produce logo.">
 >>>>>>> parent of 3fac9c6 (seo stuff)

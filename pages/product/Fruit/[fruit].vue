@@ -96,7 +96,11 @@ const openModal = (filePath) => {
             <li>
               <div class="photo">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <NuxtImg format="webp"  :src="getImageURL(filePath)" :alt="`${fruitData.name} - ${fruitData.packstyle}`"   @click="openModal(filePath)" />
+=======
+                <img :src="getImageURL(filePath)" alt="Image" @click="openModal(filePath)">
+>>>>>>> parent of 3fac9c6 (seo stuff)
 =======
                 <img :src="getImageURL(filePath)" alt="Image" @click="openModal(filePath)">
 >>>>>>> parent of 3fac9c6 (seo stuff)
