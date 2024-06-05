@@ -105,7 +105,7 @@ const openModal = (filePath) => {
       <div class="modal-photo">
         <slot />
         <div class="x-wrapper" @click="toggleModal()"><span class=x-btn>&times;</span></div>
-        <img v-if="modalImage" :src="modalImage" />
+        <NuxtImg format="webp"  v-if="modalImage" :src="modalImage" />
       </div>
     </div>
   </div>
