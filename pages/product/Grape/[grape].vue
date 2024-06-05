@@ -68,8 +68,7 @@ const openModal = (filePath) => {
 }
 </script>
 <template>
-
-<div class="grape-info">
+  <div class="grape-info">
     <div class="wrapper">
       <div class="wrapper-text">
         <div class="wrapper-header">
@@ -110,8 +109,6 @@ const openModal = (filePath) => {
       </div>
     </div>
   </div>
-
-  
 </template>
 
 <style scoped>

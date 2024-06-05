@@ -69,7 +69,7 @@ const openModal = (filePath) => {
 </script>
 
 <template>
- <div class="fruit-info">
+  <div class="fruit-info">
     <div class="wrapper">
       <div class="wrapper-text">
         <div class="wrapper-header">
@@ -92,10 +92,14 @@ const openModal = (filePath) => {
         <h3>Photos</h3>
         <p>Click to enlarge.</p>
         <div class="wrapper-photos">
-          <ul class="gallery" v-for="filePath in fruitImages" >
+          <ul class="gallery" v-for="filePath in fruitImages">
             <li>
               <div class="photo">
+<<<<<<< HEAD
                 <NuxtImg format="webp"  :src="getImageURL(filePath)" :alt="`${fruitData.name} - ${fruitData.packstyle}`"   @click="openModal(filePath)" />
+=======
+                <img :src="getImageURL(filePath)" alt="Image" @click="openModal(filePath)">
+>>>>>>> parent of 3fac9c6 (seo stuff)
               </div>
             </li>
           </ul>
@@ -110,7 +114,6 @@ const openModal = (filePath) => {
       </div>
     </div>
   </div>
- 
 </template>
 
 <style scoped>

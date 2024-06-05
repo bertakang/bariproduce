@@ -18,8 +18,8 @@ const mainImage = await getMainImage();
 </script>
 
 <template>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <section id="home">
     <div class="wrapper">
       <NuxtImg format="webp" :src="`https://bertakang.pythonanywhere.com/${mainImage.file_path}`" alt="Main Image" />

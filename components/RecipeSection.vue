@@ -4,7 +4,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <section id="recipes" >
+  <section id="recipes">
       <div class="sticky">
         <div class="text-block">
           <h1>Recipes</h1>

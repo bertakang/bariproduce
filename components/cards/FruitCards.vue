@@ -13,16 +13,16 @@ const fruitCards = data.value.fruit_cards;
 
 <template>
   <div class="FruitCard">
-    <div class="cards-wrapper">
-      <NuxtLink v-for="card in fruitCards" :key="card.id" :to="`/product/Fruit/${card.name}`" :aria-label='card.name'>
+    <ul class="cards-wrapper">
+      <NuxtLink v-for="card in fruitCards" :key="card.id" :to="`/product/Fruit/${card.name}`">
         <div class="card-wrapper">
           <div class="wrapper">
             <div class="header">
-              <h1>{{ card.name }}</h1>
+              <h3>{{ card.name }}</h3>
               <p>{{ card.type }}</p>
             </div>
             <div class="card-image">
-              <img :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" :alt='card.description'>
+              <img :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`">
             </div>
             <div class="text-wrapper">
               <div class="card-description">
@@ -35,7 +35,7 @@ const fruitCards = data.value.fruit_cards;
           </div>
         </div>
       </NuxtLink>
-    </div>
+    </ul>
   </div>
 </template>
 
@@ -53,7 +53,7 @@ img {
   object-fit: cover;
 }
 
-h1 {
+h3 {
   font-family: 'Archivo', sans-serif;
   font-weight: 600;
   line-height: 1.2;
