@@ -12,7 +12,7 @@ const scrollToSection = (sectionId: string) => {
     <section id="contact">
         <div class="wrapper">
             <div class="bari-produce-logo">
-                <img src="../assets/bari-produce-logo.png">
+                <img src="../assets/bari-produce-logo.png" alt="BARI Produce logo in full color">
             </div>
             <div class="contact-wrapper">
                 <div class="contact-navbar">
