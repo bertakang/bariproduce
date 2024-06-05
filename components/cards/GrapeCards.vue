@@ -13,16 +13,16 @@ const grapeCards = data.value.grape_cards;
 
 <template>
   <div class="GrapeCard">
-    <ul class="cards-wrapper">
+    <div class="cards-wrapper">
       <NuxtLink v-for="card in grapeCards" :key="card.id" :to="`/product/Grape/${card.name}`">
         <div class="card-wrapper">
           <div class="wrapper">
             <div class="header">
-              <h3>{{ card.name }}</h3>
+              <h1>{{ card.name }}</h1>
               <p>{{ card.type }}</p>
             </div>
             <div class="card-image">
-              <img :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`">
+              <img :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" :alt='card.name'>
             </div>
             <div class="text-wrapper">
               <div class="card-description">
@@ -35,7 +35,7 @@ const grapeCards = data.value.grape_cards;
           </div>
         </div>
       </NuxtLink>
-    </ul>
+    </div>
   </div>
 </template>
 
@@ -53,7 +53,7 @@ img {
   object-fit: cover;
 }
 
-h3 {
+h1 {
   font-family: 'Archivo', sans-serif;
   font-weight: 600;
   line-height: 1.2;
@@ -153,7 +153,7 @@ p {
     font-size: 22px;
   }
 
-  h3 {
+  h1 {
     line-height: 1.2;
     font-size: 16px;
   }
