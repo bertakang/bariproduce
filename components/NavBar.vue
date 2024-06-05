@@ -474,9 +474,14 @@ li:hover {
   }
 
   .primary-link>li {
-
+    justify-content: end;
+    justify-items: end;
     font-weight: normal;
     font-size: 18px;
+  }
+
+  li {
+    justify-content: end;
   }
 
   .secondary-dropdown {
