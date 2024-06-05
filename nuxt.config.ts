@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  base : 'bariproduce', 
+  base : 'bariproduce',
   devtools: { enabled: true },
+
   router: {
     routes: [
       {
@@ -21,4 +22,15 @@ export default defineNuxtConfig({
       },
     ],
   },
+
+  site: {
+    url: 'https://bariproduce.vercel.app/',
+    name: 'BARI Produce | High-Quality California Tree Fruit & Grapes',
+    description: 'Freshest California tree fruit and table grapes delivered straight to your door. Explore our farm-fresh varieties and discover delicious recipes!',
+    defaultLocale: 'en',
+    indexable: false,
+  },
+
+  modules: ["@nuxtjs/seo"],
+  
 })
