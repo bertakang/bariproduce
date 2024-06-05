@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import NavBar from './components/NavBar.vue';
-import Contact from './components/Contact.vue';
-
-
 </script>
 
 <template>
     <div>
-      <NavBar />
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
-      <Contact />
     </div>
   </template>
 
