@@ -20,7 +20,7 @@ const recipeCards = data.value.recipe_cards;
               <h1>{{ card.name }}</h1>
             </div>
             <div class="card-image">
-              <NuxtImg format="webp" :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" :alt='card.name' style="width: 100%; height: auto; object-fit: cover; align-self:center;" />
+              <NuxtImg format="webp" :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" :alt='card.name' loading="lazy" style="width: 100%; height: auto; object-fit: cover; align-self:center;" />
             </div>
             <div class="text-wrapper">
               <div class="card-description">
