@@ -111,10 +111,10 @@ onMounted(() => {
         <div class="navlinks-wrapper" v-show="navBool">
           <nav>
             <ul class="navlinks" >
-              <li><a href="#home" @click.prevent="scrollToSection('home')" >HOME</a></li>
-              <li><a href="#about" @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</a></li>
+              <li><a href="#home" title="Go to the landing page in our Home section" @click.prevent="scrollToSection('home')" >HOME</a></li>
+              <li><a href="#about" title="Learn about us" @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</a></li>
               <div class="dropdown">
-                <li><a href="#product" @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
+                <li><a href="#product" title="Browse our products" @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
                 <div class="primary-dropdown" @click="openProductDropdown()">
                   <Transition>
                     <div class="primary-link-wrapper" v-show="productDropdownBool">
@@ -147,7 +147,7 @@ onMounted(() => {
                 </div>
               </div>
               <div class="dropdown">
-                <li><a href="recipes" @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
+                <li><a href="recipes" title="See our free recipes"  @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
                 <div class="primary-dropdown" @click="openRecipeDropdown()">
                   <div class="primary-link-wrapper" v-show="recipeDropdownBool">
                     <div class="primary-link">
