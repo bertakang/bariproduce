@@ -22,14 +22,14 @@ const mainImage = await getMainImage();
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <section id="home">
     <div class="wrapper">
-      <img :src="`https://bertakang.pythonanywhere.com/${mainImage.file_path}`" alt="Main Image">
+      <NuxtImg format="webp" :src="`https://bertakang.pythonanywhere.com/${mainImage.file_path}`" alt="Main Image" />
     </div>
   </section>
   <section id="about">
     <div class="sticky-grid">
       <div class="image-wrapper">
         <div class="sticky">
-          <img class="sticky" src="../assets/about.jpg" alt="Description of the image">
+          <NuxtImg format="webp" class="sticky" src="../assets/about.jpg" alt="BARI Produce employee" />
         </div>
       </div>
       <div class="scrollable-about">
@@ -80,7 +80,7 @@ const mainImage = await getMainImage();
       <div class="one-third-image">
         <div class="product-image-wrapper">
           <div class="product-image">
-            <img src="../assets/stonefruit.png" alt="Description of the image">
+            <NuxtImg format="webp" src="../assets/stonefruit.png" alt="BARI Produce stonefruit" />
           </div>
         </div>
       </div>
@@ -107,8 +107,8 @@ const mainImage = await getMainImage();
     <div class="one-third-image">
       <div class="product-image-wrapper">
         <div class="product-image">
-          <img src="../assets/tablegrapes.png" alt="Description of the image">
-          <img src="../assets/tablegrapesbox.png" alt="Description of the image">
+          <NuxtImg format="webp" src="../assets/tablegrapes.png" alt="BARI Produce table grapes" />
+          <NuxtImg format="webp" src="../assets/tablegrapesbox.png" alt="BARI Produce table grapes box" />
 
         </div>
       </div>
@@ -126,7 +126,7 @@ section {
   min-height: 100vh;
 }
 
-img {
+NuxtImg format="webp" {
   height: 100%;
   width: 100%;
   object-fit: cover;

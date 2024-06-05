@@ -95,7 +95,7 @@ const openModal = (filePath) => {
           <ul class="gallery" v-for="filePath in grapeImages">
             <li>
               <div class="photo">
-                <img :src="getImageURL(filePath)" alt="Image" @click="openModal(filePath)">
+                <NuxtImg format="webp"  :src="getImageURL(filePath)" alt="Image" @click="openModal(filePath)" />
               </div>
             </li>
           </ul>
