@@ -33,7 +33,8 @@ const directionsList = directions.split('.').map(item => item.trim());
 </script>
 
 <template>
-    <section class="recipes-page">
+
+ <section class="recipes-page">
       <div class="recipes-description">
         <div class="header">
           <h1>{{ recipeData.name }}</h1>
@@ -53,6 +54,7 @@ const directionsList = directions.split('.').map(item => item.trim());
         </div>
       </div>
     </section>
+   
 </template>
 
 <style scoped>

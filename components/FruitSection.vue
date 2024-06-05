@@ -21,7 +21,7 @@ onMounted(async () => {
 
 
 <template>
-  <section id="Fruits">
+  <section id="Fruits" >
     <div class="menu-header">
       <h2>Fruit Selection</h2>
     </div>

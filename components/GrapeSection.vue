@@ -6,7 +6,7 @@ const route = useRoute();
 
 
 <template>
-  <section id="Grapes">
+  <section id="Grapes" >
     <div class="menu-header">
       <h2>Grape Selection</h2>
     </div>
