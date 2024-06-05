@@ -31,6 +31,6 @@ export default defineNuxtConfig({
     indexable: false,
   },
 
-  modules: ["@nuxtjs/seo"],
+  modules: ["@nuxtjs/seo", "@nuxt/image"],
   
 })

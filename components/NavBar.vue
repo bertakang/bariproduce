@@ -433,6 +433,11 @@ li:hover {
     width: 100px;
   }
 
+  .logo {
+    height: auto;
+    width: 100px;
+  }
+
   .mobile-navlinks-wrapper {
     display: flex;
     position: static;
