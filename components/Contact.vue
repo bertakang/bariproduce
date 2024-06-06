@@ -174,6 +174,7 @@ li {
     text-transform: uppercase;
     cursor: pointer;
     list-style: none;
+    color:#7E315D;
 }
 
 
