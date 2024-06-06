@@ -112,9 +112,9 @@ onMounted(() => {
           <nav>
             <ul class="navlinks" >
               <li title="Go to the landing page in our Home section" @click.prevent="scrollToSection('home')" >HOME</li>
-              <li><a href="#about" title="Learn about us" @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</a></li>
+              <li title="Learn about us" @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</li>
               <div class="dropdown">
-                <li><a href="#product" title="Browse our products" @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
+                <li title="Browse our products" @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</li>
                 <div class="primary-dropdown" @click="openProductDropdown()">
                   <Transition>
                     <div class="primary-link-wrapper" v-show="productDropdownBool">
@@ -147,7 +147,7 @@ onMounted(() => {
                 </div>
               </div>
               <div class="dropdown">
-                <li><a href="recipes" title="See our free recipes"  @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</a></li>
+                <li title="See our free recipes"  @click.prevent="scrollToSection('recipes')" @mouseover="openRecipeDropdown()">RECIPES</li>
                 <div class="primary-dropdown" @click="openRecipeDropdown()">
                   <div class="primary-link-wrapper" v-show="recipeDropdownBool">
                     <div class="primary-link">
@@ -158,7 +158,7 @@ onMounted(() => {
                   </div>
                 </div>
               </div>
-              <li><a href="contact" @click.prevent="scrollToSection('contact')">CONTACT</a></li>
+              <li @click.prevent="scrollToSection('contact')">CONTACT</li>
             </ul>
           </nav>
         </div>
