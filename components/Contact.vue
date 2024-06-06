@@ -17,11 +17,13 @@ const scrollToSection = (sectionId: string) => {
             <div class="contact-wrapper">
                 <div class="contact-navbar">
                     <nav class="contact-nav-links-wrapper">
-                        <a @click.prevent="scrollToSection('home')">Home</a>
-                        <a @click.prevent="scrollToSection('about')">About</a>
-                        <a @click.prevent="scrollToSection('products')">Product</a>
-                        <a @click.prevent="scrollToSection('recipes')">Recipe</a>
-                        <a @click.prevent="scrollToSection('contact')">Contact</a>
+                        <ul>
+                            <li @click.prevent="scrollToSection('home')">Home</li>
+                            <li @click.prevent="scrollToSection('about')">About</li>
+                            <li @click.prevent="scrollToSection('products')">Product</li>
+                            <li @click.prevent="scrollToSection('recipes')">Recipe</li>
+                            <li @click.prevent="scrollToSection('contact')">Contact</li>
+                        </ul>
                     </nav>
                 </div>
                 <div class="address-wrapper">
@@ -163,12 +165,15 @@ img {
     width: auto;
 }
 
-a {
+li {
     font-family: 'Archivo', sans-serif;
     font-weight: bold;
     font-size: 20px;
+    margin: 8px 0px;
+    padding: 0px;
     text-transform: uppercase;
     cursor: pointer;
+    list-style: none;
 }
 
 
