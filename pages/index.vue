@@ -9,7 +9,7 @@ async function getMainImage() {
   });
 
   const mainImage = data.value.main_image
-  console.log(mainImage[0]);
+
 
   return mainImage[0];
 }

@@ -111,7 +111,7 @@ onMounted(() => {
         <div class="navlinks-wrapper" v-show="navBool">
           <nav>
             <ul class="navlinks" >
-              <li><a href="#home" title="Go to the landing page in our Home section" @click.prevent="scrollToSection('home')" >HOME</a></li>
+              <li title="Go to the landing page in our Home section" @click.prevent="scrollToSection('home')" >HOME</li>
               <li><a href="#about" title="Learn about us" @click.prevent="scrollToSection('about')" @scroll="scrollToSection('about')">ABOUT</a></li>
               <div class="dropdown">
                 <li><a href="#product" title="Browse our products" @click.prevent="scrollToSection('products')" @mouseover="openProductDropdown()">PRODUCT</a></li>
