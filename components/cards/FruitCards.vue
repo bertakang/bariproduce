@@ -22,7 +22,7 @@ const fruitCards = data.value.fruit_cards;
               <p>{{ card.type }}</p>
             </div>
             <div class="card-image">
-              <NuxtImg format="webp" :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" loading="lazy" :alt='card.name' style="width: 100%; height: auto; object-fit: cover; align-self:center;" />
+              <NuxtImg format="webp" :src="`https://bertakang.pythonanywhere.com/mysite/${card.file_path}`" loading="lazy" :alt='card.name' style="width: 100%; height: auto; object-fit: cover; align-self:flex-end;" />
             </div>
             <div class="text-wrapper">
               <div class="card-description">
