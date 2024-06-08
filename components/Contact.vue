@@ -175,8 +175,12 @@ li {
     cursor: pointer;
     list-style: none;
     color:#7E315D;
+
 }
 
+ul {
+    padding: 0px;
+}
 
 .nav-link {
     font-family: 'Archivo', sans-serif;
@@ -218,6 +222,7 @@ p {
     display: grid;
     grid-template-columns: 1fr;
     gap: 8px;
+
 }
 
 .address-wrapper {
